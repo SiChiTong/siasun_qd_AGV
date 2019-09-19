@@ -102,65 +102,6 @@ void init_System()
     get_PID();      //开PID线程
 }
 
-/*
-//判断车体的运行方向
-void Judge()
-{
-	int a;
-	int j;
-	float direction;
-	float direction_x = Destination_Coor_InWorld.x_coor - AGV_Current_Coor_InWorld.x_coor;
-	float direction_y= Destination_Coor_InWorld.y_coor - AGV_Current_Coor_InWorld.y_coor;
-
-	if (Add_Command_Line == 1)
-	{
-		a = (( angle_temp > (-45) && angle_temp < 135) ? 1:-1);
-		direction = ( abs( direction_x) - abs( direction_y ) > 0 ? direction_x : direction_y );
-		Distance_Symbols = (direction > 0 ? 1 : -1) * a ;
-
-		if (Distance_Symbols == 1)
-		    Motionstyle = ACTION_MODE_GOAHEAD;
-
-		if (Distance_Symbols == -1)
-			Motionstyle = ACTION_MODE_GOBACK;
-	}
-
-    if (Add_Command_Rotate == 1)
-    {
-        if (  Destination_Coor_InWorld.angle_coor == 0 )			//如果目标角度为0°
-        {
-            if ( angle_deviation > 0 && angle_deviation < 180)
-                Motionstyle = MOTIONSTATE_TRUNRIGHT;			//右转
-            else
-                Motionstyle = MOTIONSTATE_TRUNLEFT;				//左转
-        }
-        if ( Destination_Coor_InWorld.angle_coor == 90 )			//如果目标角度为90°
-        {
-            if ( angle_deviation > 90 && angle_deviation < 270)
-                Motionstyle = MOTIONSTATE_TRUNRIGHT;			//右转
-            else
-                Motionstyle = MOTIONSTATE_TRUNLEFT;				//左转
-        }
-        if ( Destination_Coor_InWorld.angle_coor == 180 )			//如果目标角度为180°
-        {
-            if ( angle_deviation > 0 && angle_deviation < 180 )
-                Motionstyle = MOTIONSTATE_TRUNLEFT;				//左转
-            else
-                Motionstyle = MOTIONSTATE_TRUNRIGHT;			//右转
-        }
-        if ( Destination_Coor_InWorld.angle_coor == -90 )			//如果目标角度为270°
-        {
-            if ( angle_deviation > 90 && angle_deviation < 270 )
-                Motionstyle = MOTIONSTATE_TRUNLEFT;				//左转
-            else
-                Motionstyle = MOTIONSTATE_TRUNRIGHT;			//右转
-        }
-
-    }
-}
-*/
-
-
 
 
 

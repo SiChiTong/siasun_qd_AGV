@@ -10,6 +10,7 @@
 #include "motion_ctrl.h"
 #include "Tools/Tools.h"
 #include "AGVControl.h"
+#include <PGV150.h>
 
 
 extern Velocity_Class_t Target_Velocity_InAGV;     //目标速度
@@ -95,6 +96,7 @@ void Judge()
 
 void AGV_RUN()
 {
+	printf("nAgvWorkMode=%d\n",nAgvWorkMode);
     switch (nAgvWorkMode)
     {
         case AGV_MODE_STANDBY:
@@ -203,9 +205,12 @@ void AGV_Running()
 
         else
         {
+        	printf("AGV_Runing\n");
+        	printf("Motionstyle=%d\n",Motionstyle);
 /*********************************************前进****************************************************/
             if ( Motionstyle == ACTION_MODE_GOAHEAD )
             {
+            	printf("前进\n");
                 UpdateAgvHeaderDirToNow();
                 Process_Movement_Command();
                 Movement_Control();
@@ -224,6 +229,8 @@ void AGV_Running()
  /*********************************************后退****************************************************/
             if ( Motionstyle == ACTION_MODE_GOBACK)
             {
+            	printf("后退\n");
+
                 UpdateAgvHeaderDirToNow();
                 Process_Movement_Command();
                 Movement_Control();
@@ -241,6 +248,7 @@ void AGV_Running()
 /********************************************左转******************************************************/
             else if (Motionstyle == ACTION_MODE_TRUNLEFT)
             {
+            	printf("左转\n");
                 UpdateAgvHeaderDirToNow();
                 Process_Movement_Command();
                 Movement_Control();
@@ -276,6 +284,7 @@ void AGV_Running()
 /********************************************右转******************************************************/
             else if (Motionstyle == ACTION_MODE_TRUNRIGHT)
             {
+            	printf("右转\n");
                 UpdateAgvHeaderDirToNow();
                 Process_Movement_Command();
                 Movement_Control();

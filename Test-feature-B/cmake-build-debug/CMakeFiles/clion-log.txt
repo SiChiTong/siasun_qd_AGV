@@ -1,4 +1,4 @@
-/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/siasunhebo/new_dir/AGV/Test-feature-B
+/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B
 -- The C compiler identification is GNU 4.9.1
 -- The CXX compiler identification is GNU 4.9.1
 -- Check for working C compiler: /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc
@@ -16,4 +16,4 @@
 .
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug
+-- Build files have been written to: /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug

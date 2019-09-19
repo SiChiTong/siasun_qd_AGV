@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++ -march=armv7-a;-mthumb-interwork;-mfloat-abi=hard;-mfpu=neon;-mtune=cortex-a9;--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi
@@ -23,39 +23,39 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_632ce/fast 
-/usr/bin/make -f CMakeFiles/cmTC_632ce.dir/build.make CMakeFiles/cmTC_632ce.dir/build
-make[1]: 正在进入目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_632ce.dir/testCCompiler.c.o
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -o CMakeFiles/cmTC_632ce.dir/testCCompiler.c.o   -c /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_632ce
-/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_632ce.dir/link.txt --verbose=1
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_632ce.dir/testCCompiler.c.o  -o cmTC_632ce 
-make[1]:正在离开目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_dabfb/fast 
+/usr/bin/make -f CMakeFiles/cmTC_dabfb.dir/build.make CMakeFiles/cmTC_dabfb.dir/build
+make[1]: 正在进入目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dabfb.dir/testCCompiler.c.o
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -o CMakeFiles/cmTC_dabfb.dir/testCCompiler.c.o   -c /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_dabfb
+/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dabfb.dir/link.txt --verbose=1
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_dabfb.dir/testCCompiler.c.o  -o cmTC_dabfb 
+make[1]:正在离开目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_ea2d9/fast 
-/usr/bin/make -f CMakeFiles/cmTC_ea2d9.dir/build.make CMakeFiles/cmTC_ea2d9.dir/build
-make[1]: Entering directory `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -v -o CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o   -c /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCCompilerABI.c
+Run Build Command(s):/usr/bin/make cmTC_a7730/fast 
+/usr/bin/make -f CMakeFiles/cmTC_a7730.dir/build.make CMakeFiles/cmTC_a7730.dir/build
+make[1]: Entering directory `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -v -o CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o   -c /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCCompilerABI.c
 Using built-in specs.
 COLLECT_GCC=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc
 Target: arm-poky-linux-gnueabi
 Configured with: /home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/work-shared/gcc-4.9.1-r0/gcc-4.9.1/configure --build=x86_64-linux --host=x86_64-pokysdk-linux --target=arm-poky-linux-gnueabi --prefix=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr --exec_prefix=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr --bindir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi --sbindir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi --libexecdir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi --datadir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/share --sysconfdir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/etc --sharedstatedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/com --localstatedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/var --libdir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi --includedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/include --oldincludedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/include --infodir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/share/info --mandir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-nativesdk-pokysdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=arm-poky-linux-gnueabi- --without-local-prefix --enable-target-optspace --enable-lto --enable-libssp --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --with-gxx-include-dir=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/include/c++/4.9.1 --with-build-time-tools=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-linux/usr/arm-poky-linux-gnueabi/bin --with-sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi --with-build-sysroot=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/imx6dlsabresd --enable-poison-system-directories --with-mpfr=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-nativesdk-pokysdk-linux --with-mpc=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-nativesdk-pokysdk-linux --enable-nls --with-arch=armv7-a
 Thread model: posix
 gcc version 4.9.1 (GCC) 
-COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o' '-c' '-mtls-dialect=gnu'
- /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/cc1 -quiet -v -isysroot /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 -mtls-dialect=gnu -auxbase-strip CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o -g -O2 -version -feliminate-unused-debug-types -o - |
- /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/as -v -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -meabi=5 -o CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o
+COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o' '-c' '-mtls-dialect=gnu'
+ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/cc1 -quiet -v -isysroot /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 -mtls-dialect=gnu -auxbase-strip CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o -g -O2 -version -feliminate-unused-debug-types -o - |
+ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/as -v -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -meabi=5 -o CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o
 GNU assembler version 2.24 (arm-poky-linux-gnueabi) using BFD version (GNU Binutils) 2.24
 GNU C (GCC) version 4.9.1 (arm-poky-linux-gnueabi)
 	compiled by GNU C version 4.9.1, GMP version 6.0.0, MPFR version 3.1.2, MPC version 1.0.2
@@ -74,10 +74,10 @@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: c876247a437833c1a097809dd6fa3ca1
 COMPILER_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/
 LIBRARY_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/
-COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o' '-c' '-mtls-dialect=gnu'
-Linking C executable cmTC_ea2d9
-/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea2d9.dir/link.txt --verbose=1
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o  -o cmTC_ea2d9 
+COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o' '-c' '-mtls-dialect=gnu'
+Linking C executable cmTC_a7730
+/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a7730.dir/link.txt --verbose=1
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o  -o cmTC_a7730 
 Using built-in specs.
 COLLECT_GCC=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc
 COLLECT_LTO_WRAPPER=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/lto-wrapper
@@ -87,9 +87,9 @@ Thread model: posix
 gcc version 4.9.1 (GCC) 
 COMPILER_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/
 LIBRARY_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/
-COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_ea2d9' '-mtls-dialect=gnu'
- /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/collect2 -plugin /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/liblto_plugin.so -plugin-opt=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccXywQ6n.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi --build-id --eh-frame-hdr --hash-style=gnu -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_ea2d9 /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crt1.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crti.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtbegin.o -L/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtend.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crtn.o
-make[1]: Leaving directory `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_a7730' '-mtls-dialect=gnu'
+ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/collect2 -plugin /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/liblto_plugin.so -plugin-opt=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccE0IGyp.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi --build-id --eh-frame-hdr --hash-style=gnu -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_a7730 /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crt1.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crti.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtbegin.o -L/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtend.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crtn.o
+make[1]: Leaving directory `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit include dir info from above output: rv=done
@@ -107,22 +107,22 @@ Parsed C implicit include dir info from above output: rv=done
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make cmTC_ea2d9/fast ]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_ea2d9.dir/build.make CMakeFiles/cmTC_ea2d9.dir/build]
-  ignore line: [make[1]: Entering directory `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -v -o CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o   -c /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCCompilerABI.c]
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_a7730/fast ]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_a7730.dir/build.make CMakeFiles/cmTC_a7730.dir/build]
+  ignore line: [make[1]: Entering directory `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -v -o CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o   -c /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCCompilerABI.c]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc]
   ignore line: [Target: arm-poky-linux-gnueabi]
   ignore line: [Configured with: /home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/work-shared/gcc-4.9.1-r0/gcc-4.9.1/configure --build=x86_64-linux --host=x86_64-pokysdk-linux --target=arm-poky-linux-gnueabi --prefix=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr --exec_prefix=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr --bindir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi --sbindir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi --libexecdir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi --datadir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/share --sysconfdir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/etc --sharedstatedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/com --localstatedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/var --libdir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi --includedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/include --oldincludedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/include --infodir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/share/info --mandir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-nativesdk-pokysdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=arm-poky-linux-gnueabi- --without-local-prefix --enable-target-optspace --enable-lto --enable-libssp --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --with-gxx-include-dir=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/include/c++/4.9.1 --with-build-time-tools=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-linux/usr/arm-poky-linux-gnueabi/bin --with-sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi --with-build-sysroot=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/imx6dlsabresd --enable-poison-system-directories --with-mpfr=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-nativesdk-pokysdk-linux --with-mpc=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-nativesdk-pokysdk-linux --enable-nls --with-arch=armv7-a]
   ignore line: [Thread model: posix]
   ignore line: [gcc version 4.9.1 (GCC) ]
-  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o' '-c' '-mtls-dialect=gnu']
-  ignore line: [ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/cc1 -quiet -v -isysroot /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 -mtls-dialect=gnu -auxbase-strip CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o -g -O2 -version -feliminate-unused-debug-types -o - |]
-  ignore line: [ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/as -v -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -meabi=5 -o CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o]
+  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o' '-c' '-mtls-dialect=gnu']
+  ignore line: [ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/cc1 -quiet -v -isysroot /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 -mtls-dialect=gnu -auxbase-strip CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o -g -O2 -version -feliminate-unused-debug-types -o - |]
+  ignore line: [ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/as -v -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -meabi=5 -o CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o]
   ignore line: [GNU assembler version 2.24 (arm-poky-linux-gnueabi) using BFD version (GNU Binutils) 2.24]
   ignore line: [GNU C (GCC) version 4.9.1 (arm-poky-linux-gnueabi)]
   ignore line: [	compiled by GNU C version 4.9.1, GMP version 6.0.0, MPFR version 3.1.2, MPC version 1.0.2]
@@ -141,10 +141,10 @@ Parsed C implicit link information from above output:
   ignore line: [Compiler executable checksum: c876247a437833c1a097809dd6fa3ca1]
   ignore line: [COMPILER_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/]
   ignore line: [LIBRARY_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o' '-c' '-mtls-dialect=gnu']
-  ignore line: [Linking C executable cmTC_ea2d9]
-  ignore line: [/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ea2d9.dir/link.txt --verbose=1]
-  ignore line: [/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o  -o cmTC_ea2d9 ]
+  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o' '-c' '-mtls-dialect=gnu']
+  ignore line: [Linking C executable cmTC_a7730]
+  ignore line: [/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a7730.dir/link.txt --verbose=1]
+  ignore line: [/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o  -o cmTC_a7730 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc]
   ignore line: [COLLECT_LTO_WRAPPER=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/lto-wrapper]
@@ -154,13 +154,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 4.9.1 (GCC) ]
   ignore line: [COMPILER_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/]
   ignore line: [LIBRARY_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_ea2d9' '-mtls-dialect=gnu']
-  link line: [ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/collect2 -plugin /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/liblto_plugin.so -plugin-opt=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccXywQ6n.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi --build-id --eh-frame-hdr --hash-style=gnu -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_ea2d9 /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crt1.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crti.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtbegin.o -L/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtend.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_a7730' '-mtls-dialect=gnu']
+  link line: [ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/collect2 -plugin /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/liblto_plugin.so -plugin-opt=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccE0IGyp.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi --build-id --eh-frame-hdr --hash-style=gnu -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_a7730 /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crt1.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crti.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtbegin.o -L/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtend.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crtn.o]
     arg [/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccXywQ6n.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccE0IGyp.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -176,7 +176,7 @@ Parsed C implicit link information from above output:
     arg [-m] ==> ignore
     arg [armelf_linux_eabi] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_ea2d9] ==> ignore
+    arg [cmTC_a7730] ==> ignore
     arg [/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crt1.o] ==> ignore
     arg [/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crti.o] ==> ignore
     arg [/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtbegin.o] ==> ignore
@@ -187,7 +187,7 @@ Parsed C implicit link information from above output:
     arg [-O1] ==> ignore
     arg [--hash-style=gnu] ==> ignore
     arg [--as-needed] ==> ignore
-    arg [CMakeFiles/cmTC_ea2d9.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_a7730.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -211,17 +211,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_8fecc/fast 
-/usr/bin/make -f CMakeFiles/cmTC_8fecc.dir/build.make CMakeFiles/cmTC_8fecc.dir/build
-make[1]: 正在进入目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_8fecc.dir/feature_tests.c.o
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -std=c11 -o CMakeFiles/cmTC_8fecc.dir/feature_tests.c.o   -c /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_8fecc
-/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8fecc.dir/link.txt --verbose=1
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_8fecc.dir/feature_tests.c.o  -o cmTC_8fecc 
-make[1]:正在离开目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_90d1a/fast 
+/usr/bin/make -f CMakeFiles/cmTC_90d1a.dir/build.make CMakeFiles/cmTC_90d1a.dir/build
+make[1]: 正在进入目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_90d1a.dir/feature_tests.c.o
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -std=c11 -o CMakeFiles/cmTC_90d1a.dir/feature_tests.c.o   -c /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_90d1a
+/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_90d1a.dir/link.txt --verbose=1
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_90d1a.dir/feature_tests.c.o  -o cmTC_90d1a 
+make[1]:正在离开目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -231,17 +231,17 @@ make[1]:正在离开目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-bu
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_770e4/fast 
-/usr/bin/make -f CMakeFiles/cmTC_770e4.dir/build.make CMakeFiles/cmTC_770e4.dir/build
-make[1]: 正在进入目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_770e4.dir/feature_tests.c.o
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -std=c99 -o CMakeFiles/cmTC_770e4.dir/feature_tests.c.o   -c /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_770e4
-/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_770e4.dir/link.txt --verbose=1
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_770e4.dir/feature_tests.c.o  -o cmTC_770e4 
-make[1]:正在离开目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_34504/fast 
+/usr/bin/make -f CMakeFiles/cmTC_34504.dir/build.make CMakeFiles/cmTC_34504.dir/build
+make[1]: 正在进入目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_34504.dir/feature_tests.c.o
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -std=c99 -o CMakeFiles/cmTC_34504.dir/feature_tests.c.o   -c /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_34504
+/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_34504.dir/link.txt --verbose=1
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_34504.dir/feature_tests.c.o  -o cmTC_34504 
+make[1]:正在离开目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -251,17 +251,17 @@ make[1]:正在离开目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-bu
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_981fe/fast 
-/usr/bin/make -f CMakeFiles/cmTC_981fe.dir/build.make CMakeFiles/cmTC_981fe.dir/build
-make[1]: 正在进入目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_981fe.dir/feature_tests.c.o
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -std=c90 -o CMakeFiles/cmTC_981fe.dir/feature_tests.c.o   -c /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/feature_tests.c
-Linking C executable cmTC_981fe
-/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_981fe.dir/link.txt --verbose=1
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_981fe.dir/feature_tests.c.o  -o cmTC_981fe 
-make[1]:正在离开目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_46ae6/fast 
+/usr/bin/make -f CMakeFiles/cmTC_46ae6.dir/build.make CMakeFiles/cmTC_46ae6.dir/build
+make[1]: 正在进入目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_46ae6.dir/feature_tests.c.o
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi   -O2 -pipe -g -feliminate-unused-debug-types    -std=c90 -o CMakeFiles/cmTC_46ae6.dir/feature_tests.c.o   -c /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/feature_tests.c
+Linking C executable cmTC_46ae6
+/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_46ae6.dir/link.txt --verbose=1
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-gcc   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_46ae6.dir/feature_tests.c.o  -o cmTC_46ae6 
+make[1]:正在离开目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -269,36 +269,36 @@ make[1]:正在离开目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-bu
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_ad043/fast 
-/usr/bin/make -f CMakeFiles/cmTC_ad043.dir/build.make CMakeFiles/cmTC_ad043.dir/build
-make[1]: 正在进入目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_ad043.dir/testCXXCompiler.cxx.o
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi    -O2 -pipe -g -feliminate-unused-debug-types    -o CMakeFiles/cmTC_ad043.dir/testCXXCompiler.cxx.o -c /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_ad043
-/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ad043.dir/link.txt --verbose=1
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_ad043.dir/testCXXCompiler.cxx.o  -o cmTC_ad043 
-make[1]:正在离开目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_c8c7e/fast 
+/usr/bin/make -f CMakeFiles/cmTC_c8c7e.dir/build.make CMakeFiles/cmTC_c8c7e.dir/build
+make[1]: 正在进入目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c8c7e.dir/testCXXCompiler.cxx.o
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi    -O2 -pipe -g -feliminate-unused-debug-types    -o CMakeFiles/cmTC_c8c7e.dir/testCXXCompiler.cxx.o -c /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_c8c7e
+/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c8c7e.dir/link.txt --verbose=1
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_c8c7e.dir/testCXXCompiler.cxx.o  -o cmTC_c8c7e 
+make[1]:正在离开目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_980f5/fast 
-/usr/bin/make -f CMakeFiles/cmTC_980f5.dir/build.make CMakeFiles/cmTC_980f5.dir/build
-make[1]: Entering directory `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi    -O2 -pipe -g -feliminate-unused-debug-types    -v -o CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o -c /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp
+Run Build Command(s):/usr/bin/make cmTC_645f9/fast 
+/usr/bin/make -f CMakeFiles/cmTC_645f9.dir/build.make CMakeFiles/cmTC_645f9.dir/build
+make[1]: Entering directory `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi    -O2 -pipe -g -feliminate-unused-debug-types    -v -o CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o -c /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp
 Using built-in specs.
 COLLECT_GCC=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++
 Target: arm-poky-linux-gnueabi
 Configured with: /home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/work-shared/gcc-4.9.1-r0/gcc-4.9.1/configure --build=x86_64-linux --host=x86_64-pokysdk-linux --target=arm-poky-linux-gnueabi --prefix=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr --exec_prefix=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr --bindir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi --sbindir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi --libexecdir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi --datadir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/share --sysconfdir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/etc --sharedstatedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/com --localstatedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/var --libdir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi --includedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/include --oldincludedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/include --infodir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/share/info --mandir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-nativesdk-pokysdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=arm-poky-linux-gnueabi- --without-local-prefix --enable-target-optspace --enable-lto --enable-libssp --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --with-gxx-include-dir=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/include/c++/4.9.1 --with-build-time-tools=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-linux/usr/arm-poky-linux-gnueabi/bin --with-sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi --with-build-sysroot=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/imx6dlsabresd --enable-poison-system-directories --with-mpfr=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-nativesdk-pokysdk-linux --with-mpc=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-nativesdk-pokysdk-linux --enable-nls --with-arch=armv7-a
 Thread model: posix
 gcc version 4.9.1 (GCC) 
-COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtls-dialect=gnu'
- /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/cc1plus -quiet -v -isysroot /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -D_GNU_SOURCE /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 -mtls-dialect=gnu -auxbase-strip CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o -g -O2 -version -feliminate-unused-debug-types -o - |
- /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/as -v -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -meabi=5 -o CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o
+COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtls-dialect=gnu'
+ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/cc1plus -quiet -v -isysroot /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -D_GNU_SOURCE /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 -mtls-dialect=gnu -auxbase-strip CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o -g -O2 -version -feliminate-unused-debug-types -o - |
+ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/as -v -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -meabi=5 -o CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o
 GNU C++ (GCC) version 4.9.1 (arm-poky-linux-gnueabi)
 	compiled by GNU C version 4.9.1, GMP version 6.0.0, MPFR version 3.1.2, MPC version 1.0.2
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
@@ -320,10 +320,10 @@ GNU assembler version 2.24 (arm-poky-linux-gnueabi) using BFD version (GNU Binut
 Compiler executable checksum: db9e98d736de1f5aa725240e2897d298
 COMPILER_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/
 LIBRARY_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/
-COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtls-dialect=gnu'
-Linking CXX executable cmTC_980f5
-/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_980f5.dir/link.txt --verbose=1
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_980f5 
+COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtls-dialect=gnu'
+Linking CXX executable cmTC_645f9
+/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_645f9.dir/link.txt --verbose=1
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_645f9 
 Using built-in specs.
 COLLECT_GCC=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++
 COLLECT_LTO_WRAPPER=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/lto-wrapper
@@ -333,9 +333,9 @@ Thread model: posix
 gcc version 4.9.1 (GCC) 
 COMPILER_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/
 LIBRARY_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/
-COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_980f5' '-shared-libgcc' '-mtls-dialect=gnu'
- /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/collect2 -plugin /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/liblto_plugin.so -plugin-opt=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccHrA5HV.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi --build-id --eh-frame-hdr --hash-style=gnu -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_980f5 /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crt1.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crti.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtbegin.o -L/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtend.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crtn.o
-make[1]: Leaving directory `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_645f9' '-shared-libgcc' '-mtls-dialect=gnu'
+ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/collect2 -plugin /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/liblto_plugin.so -plugin-opt=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccadtadW.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi --build-id --eh-frame-hdr --hash-style=gnu -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_645f9 /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crt1.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crti.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtbegin.o -L/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtend.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crtn.o
+make[1]: Leaving directory `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit include dir info from above output: rv=done
@@ -359,22 +359,22 @@ Parsed CXX implicit include dir info from above output: rv=done
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make cmTC_980f5/fast ]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_980f5.dir/build.make CMakeFiles/cmTC_980f5.dir/build]
-  ignore line: [make[1]: Entering directory `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi    -O2 -pipe -g -feliminate-unused-debug-types    -v -o CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o -c /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_645f9/fast ]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_645f9.dir/build.make CMakeFiles/cmTC_645f9.dir/build]
+  ignore line: [make[1]: Entering directory `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi    -O2 -pipe -g -feliminate-unused-debug-types    -v -o CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o -c /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++]
   ignore line: [Target: arm-poky-linux-gnueabi]
   ignore line: [Configured with: /home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/work-shared/gcc-4.9.1-r0/gcc-4.9.1/configure --build=x86_64-linux --host=x86_64-pokysdk-linux --target=arm-poky-linux-gnueabi --prefix=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr --exec_prefix=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr --bindir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi --sbindir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi --libexecdir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi --datadir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/share --sysconfdir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/etc --sharedstatedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/com --localstatedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/var --libdir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi --includedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/include --oldincludedir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/include --infodir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/share/info --mandir=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-nativesdk-pokysdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=arm-poky-linux-gnueabi- --without-local-prefix --enable-target-optspace --enable-lto --enable-libssp --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --with-gxx-include-dir=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/include/c++/4.9.1 --with-build-time-tools=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-linux/usr/arm-poky-linux-gnueabi/bin --with-sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi --with-build-sysroot=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/imx6dlsabresd --enable-poison-system-directories --with-mpfr=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-nativesdk-pokysdk-linux --with-mpc=/home/yuanwenlin/imx6/imx6dl/imx6dlsabresd-fb/tmp/sysroots/x86_64-nativesdk-pokysdk-linux --enable-nls --with-arch=armv7-a]
   ignore line: [Thread model: posix]
   ignore line: [gcc version 4.9.1 (GCC) ]
-  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtls-dialect=gnu']
-  ignore line: [ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/cc1plus -quiet -v -isysroot /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -D_GNU_SOURCE /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 -mtls-dialect=gnu -auxbase-strip CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o -g -O2 -version -feliminate-unused-debug-types -o - |]
-  ignore line: [ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/as -v -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -meabi=5 -o CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtls-dialect=gnu']
+  ignore line: [ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/cc1plus -quiet -v -isysroot /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi -D_GNU_SOURCE /home/siasunhebo/clion-2019.1.4/bin/cmake/linux/share/cmake-3.14/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 -mtls-dialect=gnu -auxbase-strip CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o -g -O2 -version -feliminate-unused-debug-types -o - |]
+  ignore line: [ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/as -v -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -meabi=5 -o CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o]
   ignore line: [GNU C++ (GCC) version 4.9.1 (arm-poky-linux-gnueabi)]
   ignore line: [	compiled by GNU C version 4.9.1, GMP version 6.0.0, MPFR version 3.1.2, MPC version 1.0.2]
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
@@ -396,10 +396,10 @@ Parsed CXX implicit link information from above output:
   ignore line: [Compiler executable checksum: db9e98d736de1f5aa725240e2897d298]
   ignore line: [COMPILER_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/]
   ignore line: [LIBRARY_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtls-dialect=gnu']
-  ignore line: [Linking CXX executable cmTC_980f5]
-  ignore line: [/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_980f5.dir/link.txt --verbose=1]
-  ignore line: [/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_980f5 ]
+  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtls-dialect=gnu']
+  ignore line: [Linking CXX executable cmTC_645f9]
+  ignore line: [/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_645f9.dir/link.txt --verbose=1]
+  ignore line: [/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed -v CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_645f9 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++]
   ignore line: [COLLECT_LTO_WRAPPER=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/lto-wrapper]
@@ -409,13 +409,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 4.9.1 (GCC) ]
   ignore line: [COMPILER_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/]
   ignore line: [LIBRARY_PATH=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/:/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_980f5' '-shared-libgcc' '-mtls-dialect=gnu']
-  link line: [ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/collect2 -plugin /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/liblto_plugin.so -plugin-opt=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccHrA5HV.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi --build-id --eh-frame-hdr --hash-style=gnu -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_980f5 /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crt1.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crti.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtbegin.o -L/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtend.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='--sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi' '-march=armv7-a' '-mthumb-interwork' '-mfloat-abi=hard' '-mfpu=neon' '-mtune=cortex-a9' '-O2' '-pipe' '-g' '-feliminate-unused-debug-types' '-v' '-o' 'cmTC_645f9' '-shared-libgcc' '-mtls-dialect=gnu']
+  link line: [ /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/collect2 -plugin /opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/liblto_plugin.so -plugin-opt=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccadtadW.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi --build-id --eh-frame-hdr --hash-style=gnu -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -o cmTC_645f9 /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crt1.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crti.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtbegin.o -L/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/lib/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/lib -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1 -L/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib -O1 --hash-style=gnu --as-needed CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtend.o /opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crtn.o]
     arg [/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/libexec/arm-poky-linux-gnueabi/gcc/arm-poky-linux-gnueabi/4.9.1/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccHrA5HV.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccadtadW.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -431,7 +431,7 @@ Parsed CXX implicit link information from above output:
     arg [-m] ==> ignore
     arg [armelf_linux_eabi] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_980f5] ==> ignore
+    arg [cmTC_645f9] ==> ignore
     arg [/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crt1.o] ==> ignore
     arg [/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/crti.o] ==> ignore
     arg [/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi/usr/lib/arm-poky-linux-gnueabi/4.9.1/crtbegin.o] ==> ignore
@@ -442,7 +442,7 @@ Parsed CXX implicit link information from above output:
     arg [-O1] ==> ignore
     arg [--hash-style=gnu] ==> ignore
     arg [--as-needed] ==> ignore
-    arg [CMakeFiles/cmTC_980f5.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_645f9.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -464,17 +464,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_07923/fast 
-/usr/bin/make -f CMakeFiles/cmTC_07923.dir/build.make CMakeFiles/cmTC_07923.dir/build
-make[1]: 正在进入目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_07923.dir/feature_tests.cxx.o
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi    -O2 -pipe -g -feliminate-unused-debug-types    -std=c++14 -o CMakeFiles/cmTC_07923.dir/feature_tests.cxx.o -c /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_07923
-/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_07923.dir/link.txt --verbose=1
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_07923.dir/feature_tests.cxx.o  -o cmTC_07923 
-make[1]:正在离开目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_848e4/fast 
+/usr/bin/make -f CMakeFiles/cmTC_848e4.dir/build.make CMakeFiles/cmTC_848e4.dir/build
+make[1]: 正在进入目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_848e4.dir/feature_tests.cxx.o
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi    -O2 -pipe -g -feliminate-unused-debug-types    -std=c++14 -o CMakeFiles/cmTC_848e4.dir/feature_tests.cxx.o -c /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_848e4
+/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_848e4.dir/link.txt --verbose=1
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_848e4.dir/feature_tests.cxx.o  -o cmTC_848e4 
+make[1]:正在离开目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -537,17 +537,17 @@ make[1]:正在离开目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-bu
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_f7557/fast 
-/usr/bin/make -f CMakeFiles/cmTC_f7557.dir/build.make CMakeFiles/cmTC_f7557.dir/build
-make[1]: 正在进入目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_f7557.dir/feature_tests.cxx.o
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi    -O2 -pipe -g -feliminate-unused-debug-types    -std=c++11 -o CMakeFiles/cmTC_f7557.dir/feature_tests.cxx.o -c /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_f7557
-/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f7557.dir/link.txt --verbose=1
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_f7557.dir/feature_tests.cxx.o  -o cmTC_f7557 
-make[1]:正在离开目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_b515a/fast 
+/usr/bin/make -f CMakeFiles/cmTC_b515a.dir/build.make CMakeFiles/cmTC_b515a.dir/build
+make[1]: 正在进入目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_b515a.dir/feature_tests.cxx.o
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi    -O2 -pipe -g -feliminate-unused-debug-types    -std=c++11 -o CMakeFiles/cmTC_b515a.dir/feature_tests.cxx.o -c /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_b515a
+/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b515a.dir/link.txt --verbose=1
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_b515a.dir/feature_tests.cxx.o  -o cmTC_b515a 
+make[1]:正在离开目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -610,17 +610,17 @@ make[1]:正在离开目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-bu
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
+Change Dir: /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_665ae/fast 
-/usr/bin/make -f CMakeFiles/cmTC_665ae.dir/build.make CMakeFiles/cmTC_665ae.dir/build
-make[1]: 正在进入目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_665ae.dir/feature_tests.cxx.o
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi    -O2 -pipe -g -feliminate-unused-debug-types    -std=c++98 -o CMakeFiles/cmTC_665ae.dir/feature_tests.cxx.o -c /home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_665ae
-/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_665ae.dir/link.txt --verbose=1
-/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_665ae.dir/feature_tests.cxx.o  -o cmTC_665ae 
-make[1]:正在离开目录 `/home/siasunhebo/new_dir/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_cdedb/fast 
+/usr/bin/make -f CMakeFiles/cmTC_cdedb.dir/build.make CMakeFiles/cmTC_cdedb.dir/build
+make[1]: 正在进入目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_cdedb.dir/feature_tests.cxx.o
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi    -O2 -pipe -g -feliminate-unused-debug-types    -std=c++98 -o CMakeFiles/cmTC_cdedb.dir/feature_tests.cxx.o -c /home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_cdedb
+/home/siasunhebo/clion-2019.1.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cdedb.dir/link.txt --verbose=1
+/opt/poky/1.7/sysroots/x86_64-pokysdk-linux/usr/bin/arm-poky-linux-gnueabi/arm-poky-linux-gnueabi-g++   -march=armv7-a -mthumb-interwork -mfloat-abi=hard -mfpu=neon -mtune=cortex-a9 --sysroot=/opt/poky/1.7/sysroots/cortexa9hf-vfp-neon-poky-linux-gnueabi  -O2 -pipe -g -feliminate-unused-debug-types   -Wl,-O1 -Wl,--hash-style=gnu -Wl,--as-needed  CMakeFiles/cmTC_cdedb.dir/feature_tests.cxx.o  -o cmTC_cdedb 
+make[1]:正在离开目录 `/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers

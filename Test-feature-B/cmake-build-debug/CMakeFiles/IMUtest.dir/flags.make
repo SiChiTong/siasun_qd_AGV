@@ -6,5 +6,5 @@ C_FLAGS = -O2 -pipe -g -feliminate-unused-debug-types -g   -std=gnu99
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/siasunhebo/new_dir/AGV/Test-feature-B/./Timer -I/home/siasunhebo/new_dir/AGV/Test-feature-B/. -I/home/siasunhebo/new_dir/AGV/Test-feature-B/./App -I/home/siasunhebo/new_dir/AGV/Test-feature-B/./CAN -I/home/siasunhebo/new_dir/AGV/Test-feature-B/./Math -I/home/siasunhebo/new_dir/AGV/Test-feature-B/./MPI204A -I/home/siasunhebo/new_dir/AGV/Test-feature-B/./Odom_Calib -I/home/siasunhebo/new_dir/AGV/Test-feature-B/./PGV150 -I/home/siasunhebo/new_dir/AGV/Test-feature-B/./UART -I/home/siasunhebo/new_dir/AGV/Test-feature-B/./TCP 
+C_INCLUDES = -I/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/./Timer -I/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/. -I/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/./App -I/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/./CAN -I/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/./Math -I/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/./MPI204A -I/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/./Odom_Calib -I/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/./PGV150 -I/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/./UART -I/home/siasunhebo/siasun_xieqizhen/AGV/Test-feature-B/./TCP 
 

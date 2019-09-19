@@ -40,43 +40,56 @@ enum Interpolation_State_Enum State;
 
 int Run_Movement_Class(Coordinate_Class_t Current_Coor, struct Interpolation_Parameter_t Interpolation_Parameter_temp)
 {
-    struct Coordinate_Class Coor = virtual_agv_coor_init_flag ? Virtual_AGV_Current_Coor_InWorld : Current_Coor;
+	struct Coordinate_Class Coor = virtual_agv_coor_init_flag ? Virtual_AGV_Current_Coor_InWorld : Current_Coor;
+
+	 if (Add_Command_Line == 1)
+ {
+     printf("插补状态=%d\n",State);
     switch (State)
     {
-        case No_Interpolation:  //未插补
-            if (Movement_Init(Coor, Interpolation_Parameter_m, Interpolation_Parameter_temp) == 1)
-            {
-                State = IS_Interpolating;    //IS_Interpolating
-            }
-            else if (Movement_Init(Coor, Interpolation_Parameter_m, Interpolation_Parameter_temp) == -1)
-            {
-                State = No_Interpolation;
-            }
-            else
-            {
-                State = IS_Interpolated;   //IS_Interpolated
-                return 1;    //插补失败，要移动距离小于阈值
-            }
-            break;
-        case IS_Interpolating:   //插补中
-            if (!Movement_Cal_Velocity(Current_Coor, Interpolation_Parameter_temp))    //插补完成
-            {
-                State = IS_Interpolated;
-                Virtual_AGV_Current_Coor_InWorld = Destination_Coor_InWorld;
-                Virtual_AGV_Current_Velocity_InAGV = Target_Velocity_InAGV;
+    case No_Interpolation:  //未插补
+    	if (Movement_Init(Coor, Interpolation_Parameter_m, Interpolation_Parameter) == 1)
+    	{
+    		State = IS_Interpolating;    //IS_Interpolating
+    	}
+    	else if (Movement_Init(Coor, Interpolation_Parameter_m, Interpolation_Parameter) == -1)
+        {
+            State = No_Interpolation;
+        }
+    	else
+    	{
+    		State = IS_Interpolated;   //IS_Interpolated
+    		return 1;    //插补失败，要移动距离小于阈值
+    	}
+    	break;
+    case IS_Interpolating:   //插补中
+    	if (!Movement_Cal_Velocity(Current_Coor, Interpolation_Parameter))    //插补完成
+    	{
+    		//State = IS_Interpolated;
+    		 State = No_Interpolation;
 
-            }
-            else   //还在插补，获取虚拟的坐标和速度
-            {
-                Virtual_AGV_Current_Coor_InWorld = Target_Coor_InWorld;
-                Virtual_AGV_Current_Velocity_InAGV = Target_Velocity_InAGV;
-            }
-            break;
-        default:
-            break;
+    		 virtual_agv_coor_init_flag = 0;
 
+    		//Virtual_AGV_Current_Coor_InWorld = Destination_Coor_InWorld;
+            Virtual_AGV_Current_Velocity_InAGV = Target_Velocity_InAGV;
+            printf ("Interpolat OK!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
+
+       current_distance = 0;     //获取目标坐标在起点坐标下的距离，当前坐标向量
+    	}
+    ///*
+    	else   //还在插补，获取虚拟的坐标和速度
+    	{
+    	//	Virtual_AGV_Current_Coor_InWorld = Target_Coor_InWorld;
+            Virtual_AGV_Current_Velocity_InAGV = Target_Velocity_InAGV;
+
+    	}
+    //	*/
+    	break;
+    default:
+    	break;
 
     }
+ }
     return 0;
 
 }
