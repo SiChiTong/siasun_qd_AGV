@@ -22,7 +22,7 @@ static int len_s = 0;
 int len_r;
 extern int PGV_rx_flag;
 
-struct Coordinate_Class PGV150_coor;
+
 //用来存放每一次读到的数据
 char read_data[21] = {0};
 //存放一个完整的数据帧，方便处理

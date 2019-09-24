@@ -24,6 +24,7 @@ void PGV_Send_data();
 int warn_flag, warn;
 long int x_temp, y_temp, angle_temp;
 int tag_control_num;
+struct Coordinate_Class PGV150_coor;
 
 float x_deviation;
 float y_deviation;

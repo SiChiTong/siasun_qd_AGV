@@ -11,6 +11,7 @@
 #include <math.h>
 #include <PGV150.h>
 #include <Trigonometric.h>
+#include <stdlib.h>
 
 //static float velocity_x = 0;
 //static float angular_velocity_angle = 0.0;
@@ -33,7 +34,7 @@ Coordinate_Class_t Odom_Calib(float velocity_x, float angular_velocity_angle)
 	float temp_y, temp_x;
    // struct Coordinate_Class Coor_delta;
 
-	velocity_x=fabs(velocity_x);
+	velocity_x=abs(velocity_x);
 	delta_distance = velocity_x * time_s;
 
 	Coor_delta.angle_coor = angular_velocity_angle * 0.012;

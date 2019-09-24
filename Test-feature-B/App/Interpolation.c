@@ -9,6 +9,7 @@
 #include <Interpolation.h>
 #include <math.h>
 #include <stdlib.h>
+#include<stdio.h>
 //#include<main.h>
 
 //extern struct Interpolation_Parameter_t Interpolation_Parameter;    //插补参数、参数暂存
@@ -54,6 +55,7 @@ struct Interpolation_Parameter_t Update_Interpolation_Parameter(struct Interpola
 //************************************
 int Interpolation_Init(float distance, struct Interpolation_Parameter_t Interpolation_Parameter)
 {
+
 	float slowly_distance_temp = Interpolation_Parameter.slow_time_abs * Interpolation_Parameter.min_velocity_abs;   //计算最低速移动距离
     //加减速段移动距离，用来判断是否存在匀速段：2S
 	float distance_acc_dec_temp = (Interpolation_Parameter.max_velocity_abs * Interpolation_Parameter.max_velocity_abs - Interpolation_Parameter.min_velocity_abs * Interpolation_Parameter.min_velocity_abs) /(Interpolation_Parameter.accleration_abs);

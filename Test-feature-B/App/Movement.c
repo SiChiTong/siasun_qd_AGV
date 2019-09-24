@@ -9,6 +9,7 @@
 #include <Movement.h>
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 extern Coordinate_Class_t Destination_Coor_InWorld;    //终点坐标
 extern float target_velocity;
@@ -188,6 +189,7 @@ int Movement_Cal_Velocity(Coordinate_Class_t Current_Coor_InWorld, struct Interp
 
 		printf("Inter_result=%d\n",Inter_result);
 	return Inter_result;
+
 }
 
 

@@ -152,7 +152,7 @@ int main ()
 		printf("command_line = %d, command_rotate = %d, command_angle = %d\n", Add_Command_Line, Add_Command_Rotate, command_angle);
 
 		Prase_Sensor_Data();    //传感器处理
-        Judge();  //判断车体的运行方向
+        DirectionDetermination();  //判断车体的运行方向
 
 		AGV_RUN();
 

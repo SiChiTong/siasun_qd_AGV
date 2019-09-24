@@ -9,7 +9,10 @@
 #include "agv.h"
 
 #include <Odom_Calib.h>
+#include "motion_ctrl.h"
+#include <stdint-gcc.h>
 
+extern uint16_t Motionstyle;
 wheel_paramter_t wheelParamter;
 extern struct Interpolation_Parameter_t Interpolation_Parameter;    //插补参数、参数暂存
 
@@ -44,12 +47,12 @@ float PID_result = 0.0;
 void paramter_define()
 {
 
-    wheelParamter.line_slowest_time = 0.4775;
+    wheelParamter.line_slowest_time = 0.47;
     wheelParamter.motor_max_rotationl_velocity_soft = 1600.0;
-    wheelParamter.motor_min_rotationl_velocity_soft = 600.0;
+    wheelParamter.motor_min_rotationl_velocity_soft = 500;
     wheelParamter.WHEEL_DIAMETER = 150.0;
     wheelParamter.REDUCATION_RATIO = 15.0;
-    wheelParamter.wheel_acceleration_time = 0.4775;
+    wheelParamter.wheel_acceleration_time = 0.47;//0.4775
 
     wheelParamter.wheel_max_line_velocity = wheelParamter.motor_max_rotationl_velocity_soft * wheelParamter.WHEEL_DIAMETER * M_PI / 60.0 / wheelParamter.REDUCATION_RATIO;
     wheelParamter.wheel_min_line_velocity = wheelParamter.motor_min_rotationl_velocity_soft * wheelParamter.WHEEL_DIAMETER * M_PI / 60.0 / wheelParamter.REDUCATION_RATIO;
@@ -104,12 +107,10 @@ void Location_AGV()
 	AGV_Current_Velocity_InAGV.velocity_x = AGV_Current_Velocity_By_Encoder.velocity_x;
 	AGV_Current_Velocity_InAGV.velocity_y = 0;
 
-
-    if (data_ok == 1)     //相机读取到数据
-    {
+	if (data_ok == 1)     //相机读取到数据
+	{
         data_ok = 0;
         angle = 0.0;
-
 
         Coor_delta.y_coor = 0;
         Coor_delta.x_coor = 0;
@@ -137,6 +138,8 @@ void *PID_fun(void *t)
         else
             angle_error = AGV_Target_Coor_InWorld.angle_coor - AGV_Current_Coor_InWorld.angle_coor;
 
+ if ( Motionstyle == ACTION_MODE_GOAHEAD )
+     {
         if (AGV_Target_Coor_InWorld.angle_coor == 0.0)
             PID_error = Error_Coor_InAGV.y_coor * 0.55 + angle_error * 0.45;
         else if (AGV_Target_Coor_InWorld.angle_coor == 180.0)
@@ -145,6 +148,19 @@ void *PID_fun(void *t)
             PID_error = -Error_Coor_InAGV.x_coor * 0.55 + angle_error * 0.45;
         else if (AGV_Target_Coor_InWorld.angle_coor == -90.0)
             PID_error = Error_Coor_InAGV.x_coor * 0.55 + angle_error * 0.45;
+     }
+
+ if ( Motionstyle == ACTION_MODE_GOBACK)
+ {
+       if (AGV_Target_Coor_InWorld.angle_coor == 0.0)
+           PID_error = -Error_Coor_InAGV.y_coor * 0.55 + angle_error * 0.45;
+       else if (AGV_Target_Coor_InWorld.angle_coor == 180.0)
+           PID_error = Error_Coor_InAGV.y_coor * 0.55 + angle_error * 0.45;
+       else if (AGV_Target_Coor_InWorld.angle_coor == 90.0)
+           PID_error = Error_Coor_InAGV.x_coor * 0.55 + angle_error * 0.45;
+       else if (AGV_Target_Coor_InWorld.angle_coor == -90.0)
+           PID_error = -Error_Coor_InAGV.x_coor * 0.55 + angle_error * 0.45;
+    }
 
         PID_result = KP * (PID_error - error_next) + KI * PID_error + KD * (PID_error - 2 * error_next + error_last);
         if (PID_result < -100)

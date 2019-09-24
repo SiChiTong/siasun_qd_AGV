@@ -11,6 +11,8 @@
 #include "Tools/Tools.h"
 #include "AGVControl.h"
 #include <PGV150.h>
+#include <stdlib.h>
+#include<Movement.h>
 
 
 extern Velocity_Class_t Target_Velocity_InAGV;     //目标速度
@@ -35,19 +37,14 @@ extern int Add_Command_Rotate;
 extern float VL_1200;    //发送给PLC左轮速度
 extern float VR_1200;    //发送给PLC右轮速度
 
-
-//判断车体的运行方向
-void Judge()
+void goStraight()
 {
-	int a;
-	int j;
-	float direction;
-	float direction_x = Destination_Coor_InWorld.x_coor - AGV_Current_Coor_InWorld.x_coor;
-	float direction_y= Destination_Coor_InWorld.y_coor - AGV_Current_Coor_InWorld.y_coor;
+	    int a=1;
+		float direction;
+		float direction_x = Destination_Coor_InWorld.x_coor - AGV_Current_Coor_InWorld.x_coor;
+		float direction_y= Destination_Coor_InWorld.y_coor - AGV_Current_Coor_InWorld.y_coor;
 
-	if (Add_Command_Line == 1)
-	{
-		a = (( angle_temp > (-45) && angle_temp < 135) ? 1:-1);
+		a = (( PGV150_coor.angle_coor > (-45) && PGV150_coor.angle_coor < 135) ? 1:-1);
 		direction = ( abs( direction_x) - abs( direction_y ) > 0 ? direction_x : direction_y );
 		Distance_Symbols = (direction > 0 ? 1 : -1) * a ;
 
@@ -58,38 +55,80 @@ void Judge()
 			Motionstyle = ACTION_MODE_GOBACK;
 	}
 
-    if (Add_Command_Rotate == 1)
-    {
-        if (  Destination_Coor_InWorld.angle_coor == 0 )			//如果目标角度为0°
-        {
-            if ( angle_deviation > 0 && angle_deviation < 180)
-                Motionstyle = MOTIONSTATE_TRUNRIGHT;			//右转
-            else
-                Motionstyle = MOTIONSTATE_TRUNLEFT;				//左转
-        }
-        if ( Destination_Coor_InWorld.angle_coor == 90 )			//如果目标角度为90°
-        {
-            if ( angle_deviation > 90 && angle_deviation < 270)
-                Motionstyle = MOTIONSTATE_TRUNRIGHT;			//右转
-            else
-                Motionstyle = MOTIONSTATE_TRUNLEFT;				//左转
-        }
-        if ( Destination_Coor_InWorld.angle_coor == 180 )			//如果目标角度为180°
-        {
-            if ( angle_deviation > 0 && angle_deviation < 180 )
-                Motionstyle = MOTIONSTATE_TRUNLEFT;				//左转
-            else
-                Motionstyle = MOTIONSTATE_TRUNRIGHT;			//右转
-        }
-        if ( Destination_Coor_InWorld.angle_coor == -90 )			//如果目标角度为270°
-        {
-            if ( angle_deviation > 90 && angle_deviation < 270 )
-                Motionstyle = MOTIONSTATE_TRUNLEFT;				//左转
-            else
-                Motionstyle = MOTIONSTATE_TRUNRIGHT;			//右转
-        }
+void swerve()
+{
+  	printf("angle_deviation=%f\n",angle_deviation);
+      if (  Destination_Coor_InWorld.angle_coor == 0 )			//如果目标角度为0°
+      {
+          if ( angle_deviation > 0 && angle_deviation < 180)
+           //   Motionstyle = MOTIONSTATE_TRUNRIGHT;			//右转
+          Motionstyle = MOTIONSTATE_TRUNLEFT;				//左转
+          else
+              //Motionstyle = MOTIONSTATE_TRUNLEFT;				//左转
+          Motionstyle = MOTIONSTATE_TRUNRIGHT;					//右转
+      }
+      if ( Destination_Coor_InWorld.angle_coor == 90 )			//如果目标角度为90°
+      {
+          if ( angle_deviation > 90 && angle_deviation < 270)
+              Motionstyle = MOTIONSTATE_TRUNRIGHT;			//右转
+          else
+              Motionstyle = MOTIONSTATE_TRUNLEFT;				//左转
+      }
+      if ( Destination_Coor_InWorld.angle_coor == 180 )			//如果目标角度为180°
+      {
+          if ( angle_deviation > 0 && angle_deviation < 180 )
+             // Motionstyle = MOTIONSTATE_TRUNLEFT;				//左转
+          	  Motionstyle = MOTIONSTATE_TRUNRIGHT;			//右转
+          else
+           //   Motionstyle = MOTIONSTATE_TRUNRIGHT;			//右转
+          	Motionstyle = MOTIONSTATE_TRUNLEFT;				//左转
+      }
+      if ( Destination_Coor_InWorld.angle_coor == -90 )			//如果目标角度为270°
+      {
+          if ( angle_deviation > 90 && angle_deviation < 270 )
+              Motionstyle = MOTIONSTATE_TRUNLEFT;				//左转
+          else
+              Motionstyle = MOTIONSTATE_TRUNRIGHT;			//右转
+      }
 
-    }
+  }
+
+//判断车体的运行方向
+void DirectionDetermination()
+{
+	int judge_axis=0;
+	float direction_x = Destination_Coor_InWorld.x_coor - AGV_Current_Coor_InWorld.x_coor;
+	float direction_y= Destination_Coor_InWorld.y_coor - AGV_Current_Coor_InWorld.y_coor;
+
+
+	if ( (Add_Command_Line == 1) ||  (Add_Command_Rotate == 1))
+	{
+		judge_axis = ( abs( direction_x) - abs( direction_y ) > 0 ? 1:2 );
+
+		if (judge_axis == 1)  //X方向
+		{
+			if (abs(angle_deviation) < 10.0)
+			goStraight();
+
+			else{
+				Destination_Coor_InWorld.angle_coor = 0.0;
+				swerve();
+			}
+		}
+
+		if (judge_axis == 1)  //Y方向
+		{
+			if (abs(angle_deviation-90) < 10.0)
+			goStraight();
+
+			else{
+				Destination_Coor_InWorld.angle_coor = 90;
+				swerve();
+			}
+		}
+	}
+
+
 }
 
 
@@ -148,6 +187,11 @@ void AGV_Suspended()
             VL_1200 = 0.0;
             VR_1200 = 0.0;
 
+            if (data_ok ==1 ) {
+             twoDMissingCnt =0;
+              OutOfTrack = 0x00;
+              }
+
             if (OutOfTrack == 0x00)
             {
                 nAgvWorkMode = AGV_MODE_RUNNING;
@@ -182,12 +226,13 @@ void AGV_Suspended()
         default:
             break;
     }
-    nAgvWorkMode = AGV_MODE_RUNNING;
 }
 
 
 void AGV_Running()
 {
+	printf("nEvent=%d",nEvent);
+	printf("OutOfTrack=%d",OutOfTrack);
     if (NO_EVENT == nEvent)
     {
         if (ethCommBreakFlag == 0x01)    //通讯中断
@@ -214,13 +259,20 @@ void AGV_Running()
                 UpdateAgvHeaderDirToNow();
                 Process_Movement_Command();
                 Movement_Control();
-                if (Target_Velocity_InAGV.velocity_x > 1.0)
+                if (Target_Velocity_InAGV.velocity_x > 270)
                 {
                     ++ twoDMissingCnt;
-                    printf("twoDMissingCnt=%d",twoDMissingCnt);
-                    if (twoDMissingCnt > 100)
+                    printf("twoDMissingCnt=%d\n",twoDMissingCnt);
+
+                    if (data_ok ==1 ) {
+                    	twoDMissingCnt =0;
+                    	OutOfTrack = 0x00;
+                    }
+
+                    if (twoDMissingCnt > 300)
                     {
                         OutOfTrack = 0x01;
+                        nAgvWorkMode = AGV_MODE_SUSPENDED ;
 
                     }
 
@@ -234,12 +286,21 @@ void AGV_Running()
                 UpdateAgvHeaderDirToNow();
                 Process_Movement_Command();
                 Movement_Control();
-                if (Target_Velocity_InAGV.velocity_x > 1.0)
+                if (abs(Target_Velocity_InAGV.velocity_x) > 270)
                 {
-                    ++ twoDMissingCnt;
-                    if (twoDMissingCnt > 100)    //检查导航脱轨事件
+                	  ++ twoDMissingCnt;
+                	  printf("twoDMissingCnt=%d\n",twoDMissingCnt);
+
+
+                      if (data_ok ==1 ) {
+                      	twoDMissingCnt =0;
+                      	OutOfTrack = 0x00;
+                      }
+
+                    if (twoDMissingCnt > 300)    //检查导航脱轨事件
                     {
                         OutOfTrack = 0x01;
+                        nAgvWorkMode = AGV_MODE_SUSPENDED ;
 
                      }
 
@@ -258,19 +319,25 @@ void AGV_Running()
                     VL_1200 = 0.0;
                     VR_1200 = 0.0;
                 }
-                else
+                else if( abs(AGV_Current_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor) < 15 )
                 {
-                    wControl = 0.45;
-                    VL_1200 =  wControl * wheel_distance / 2.0;
-                    VR_1200 = -wControl * wheel_distance / 2.0;
-                    //VL_1200 =  130.905;
-                    //VR_1200 = -130.905;
-
-                }
+                    VL_1200 =  100;
+                    VR_1200 = -100;
+                  }
+                 else if ( abs(Destination_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor) < 30 && abs(Destination_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor) > 10)
+                 {
+                	VL_1200 =  100;
+                    VR_1200 = -100;
+                  }
+                 else
+                 {
+                   VL_1200 =  261.81;
+                   VR_1200 = - 261.81;
+                  }
 
                 if (wControl > 0.4)
                 {
-                    ++ twoDMissingCnt;
+               //     ++ twoDMissingCnt;
                     if (twoDMissingCnt > 100)
                     {
                         OutOfTrack = 0x01;
@@ -294,18 +361,25 @@ void AGV_Running()
                     VL_1200 = 0.0;
                     VR_1200 = 0.0;
                 }
-                else
+                else if( abs(AGV_Current_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor) < 15 )
                 {
-                    wControl = 0.45;
-                    VL_1200 = -wControl * wheel_distance / 2.0;
-                    VR_1200 = wControl * wheel_distance / 2.0;
-                    //VL_1200 =  130.905;
-                    //VR_1200 = -130.905;
-
+                	VL_1200 =  - 100;
+                   	VR_1200 = 100;
                 }
+                 else if ( abs(Destination_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor) < 30 && abs(Destination_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor) > 10)
+               	{
+                	VL_1200 =  - 100;
+                   VR_1200 = 100;
+               	}
+                 else
+               	{
+                	VL_1200 =  - 261.81;
+                    VR_1200 = 261.81;
+               	}
+
                 if (wControl > 0.4)
                 {
-                    ++ twoDMissingCnt;
+                 //   ++ twoDMissingCnt;
                     if (twoDMissingCnt > 100)
                     {
                         OutOfTrack = 0x01;
@@ -316,7 +390,7 @@ void AGV_Running()
 
             }
         }
-        nAgvWorkMode = AGV_MODE_SUSPENDED ;		//插补结束，进入挂起模式
+      //  nAgvWorkMode = AGV_MODE_SUSPENDED ;		//插补结束，进入挂起模式
     }
     else if (nEvent != NO_EVENT)
     {
@@ -332,7 +406,7 @@ void AGV_Running()
             Process_Movement_Command();
             if (Target_Velocity_InAGV.velocity_x > 1.0)
             {
-                ++ twoDMissingCnt;
+              //  ++ twoDMissingCnt;
                 if (twoDMissingCnt > 100)
                 {
                     OutOfTrack = 0x01;

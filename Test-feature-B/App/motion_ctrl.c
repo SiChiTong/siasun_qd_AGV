@@ -126,7 +126,7 @@ void Movement_Control()
     }
     else
     {
-        AGV_Target_Coor_InWorld = AGV_Current_Coor_InWorld;    //期望坐标是当前坐标
+        //AGV_Target_Coor_InWorld = AGV_Current_Coor_InWorld;    //期望坐标是当前坐标
         AGV_Target_Velocity_InAGV.velocity_x = 0.0;
         AGV_Target_Velocity_InAGV.velocity_y = 0.0;
         AGV_Target_Velocity_InAGV.angular_velocity_rad = 0.0;
@@ -151,7 +151,7 @@ void Movement_Control()
 
     printf("Err_Angle = %f\n", Error_Coor_InAGV.angle_coor);
 
-    vx = abs(AGV_Target_Velocity_InAGV.velocity_x);
+    vx = AGV_Target_Velocity_InAGV.velocity_x;
 
     printf("vx = %f\n", vx);
 
@@ -163,11 +163,15 @@ void Movement_Control()
             VL_1200 = 0.0;
             VR_1200 = 0.0;
             stop = 1;
+         //   Interpolation_State = No_Interpolation;
+           // virtual_agv_coor_init_flag = 0;
         }
         else
         {
+          //  VL_1200 = vx + PID_result*Distance_Symbols;
+           // VR_1200 = vx - PID_result*Distance_Symbols;
             VL_1200 = vx + PID_result;
-            VR_1200 = vx - PID_result;
+             VR_1200 = vx - PID_result;
             stop = 0;
         }
     }

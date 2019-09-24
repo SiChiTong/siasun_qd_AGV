@@ -5,7 +5,7 @@
 #ifndef _MOTION_CTRL_H
 #define _MOTION_CTRL_H
 
-#include <stdint-gcc.h>
+
 
 
 /*--------------------------------action mode define---------------------------------*/
@@ -14,6 +14,7 @@
 #define ACTION_MODE_GOBACK      MOTIONSTATE_GOBACKWARD
 #define ACTION_MODE_TRUNLEFT    MOTIONSTATE_TRUNLEFT
 #define ACTION_MODE_TRUNRIGHT   MOTIONSTATE_TRUNRIGHT
+
 
 
 typedef enum
@@ -29,6 +30,7 @@ typedef enum
 
 //uint16_t ethCommBreakFlag = 0x00;
 //uint16_t Motionstyle      = MOTIONSTATE_ONSTOPING;
+
 
 int Run_Movement_Class(Coordinate_Class_t Current_Coor, struct Interpolation_Parameter_t Interpolation_Parameter_temp);
 void Process_Movement_Command();
