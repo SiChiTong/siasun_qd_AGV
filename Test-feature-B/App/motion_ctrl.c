@@ -36,7 +36,7 @@ float wControl;   //旋转角速度
 
 extern float PID_result;
 
-enum Interpolation_State_Enum State;
+//enum Interpolation_State_Enum State;
 
 int Run_Movement_Class(Coordinate_Class_t Current_Coor, struct Interpolation_Parameter_t Interpolation_Parameter_temp)
 {

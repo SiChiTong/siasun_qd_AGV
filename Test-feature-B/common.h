@@ -15,9 +15,9 @@
 #define M_PI 3.1415926
 #define wheel_distance 581.8
 
-#define KP 10
-#define KI 1.0
-#define KD 13
+#define KP 5
+#define KI 10
+#define KD 8
 
 
 

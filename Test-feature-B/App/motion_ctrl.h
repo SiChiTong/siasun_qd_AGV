@@ -16,6 +16,7 @@
 #define ACTION_MODE_TRUNRIGHT   MOTIONSTATE_TRUNRIGHT
 
 
+enum Interpolation_State_Enum State;
 
 typedef enum
 {

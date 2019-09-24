@@ -13,6 +13,9 @@
 #include <PGV150.h>
 #include <stdlib.h>
 #include<Movement.h>
+#include<agv.h>
+#include<math.h>
+
 
 
 extern Velocity_Class_t Target_Velocity_InAGV;     //目标速度
@@ -100,34 +103,36 @@ void DirectionDetermination()
 	float direction_x = Destination_Coor_InWorld.x_coor - AGV_Current_Coor_InWorld.x_coor;
 	float direction_y= Destination_Coor_InWorld.y_coor - AGV_Current_Coor_InWorld.y_coor;
 
-
+printf("方向=%d\n",judge_axis);
+if( fabs( direction_x ) > 10 || fabs( direction_y ) > 10)
+{
 	if ( (Add_Command_Line == 1) ||  (Add_Command_Rotate == 1))
 	{
 		judge_axis = ( abs( direction_x) - abs( direction_y ) > 0 ? 1:2 );
 
 		if (judge_axis == 1)  //X方向
 		{
-			if (abs(angle_deviation) < 10.0)
+			if (abs(PGV150_coor.angle_coor) < 10.0)
 			goStraight();
 
 			else{
-				Destination_Coor_InWorld.angle_coor = 0.0;
+			Destination_Coor_InWorld.angle_coor = 0.0;
 				swerve();
 			}
 		}
 
-		if (judge_axis == 1)  //Y方向
+		if (judge_axis == 2)  //Y方向
 		{
 			if (abs(angle_deviation-90) < 10.0)
 			goStraight();
 
 			else{
-				Destination_Coor_InWorld.angle_coor = 90;
+			Destination_Coor_InWorld.angle_coor = 90;
 				swerve();
 			}
 		}
 	}
-
+}
 
 }
 
@@ -178,7 +183,7 @@ void AGV_Suspended()
     //ToDo: 关掉驱动器使能，速度清零
     VL_1200 = 0.0;
     VR_1200 = 0.0;
-
+printf("nEvent=%d\n",nEvent);
     switch (nEvent)
     {
         case OUT_OF_TRACK_EVENT:      //如果脱轨，检查是否回归坐标点
@@ -186,15 +191,19 @@ void AGV_Suspended()
         	//ToDo: 速度等参数清零
             VL_1200 = 0.0;
             VR_1200 = 0.0;
-
+          //  init_System();
+            printf("data_ok=%d\n",data_ok);
             if (data_ok ==1 ) {
+            	nEvent = 0;
              twoDMissingCnt =0;
               OutOfTrack = 0x00;
               }
 
             if (OutOfTrack == 0x00)
             {
-                nAgvWorkMode = AGV_MODE_RUNNING;
+            	Virtual_AGV_Current_Coor_InWorld = PGV150_coor;
+            	State = No_Interpolation;
+            	 nAgvWorkMode = AGV_MODE_RUNNING;
                 //ToDo: 速度等参数清零
             }
             break;
@@ -231,8 +240,7 @@ void AGV_Suspended()
 
 void AGV_Running()
 {
-	printf("nEvent=%d",nEvent);
-	printf("OutOfTrack=%d",OutOfTrack);
+
     if (NO_EVENT == nEvent)
     {
         if (ethCommBreakFlag == 0x01)    //通讯中断
@@ -272,6 +280,7 @@ void AGV_Running()
                     if (twoDMissingCnt > 300)
                     {
                         OutOfTrack = 0x01;
+                        nEvent = 2;
                         nAgvWorkMode = AGV_MODE_SUSPENDED ;
 
                     }
@@ -300,6 +309,7 @@ void AGV_Running()
                     if (twoDMissingCnt > 300)    //检查导航脱轨事件
                     {
                         OutOfTrack = 0x01;
+                        nEvent = 2;
                         nAgvWorkMode = AGV_MODE_SUSPENDED ;
 
                      }
@@ -319,12 +329,12 @@ void AGV_Running()
                     VL_1200 = 0.0;
                     VR_1200 = 0.0;
                 }
-                else if( abs(AGV_Current_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor) < 15 )
+                else if( abs(AGV_Current_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor) < 10 )
                 {
                     VL_1200 =  100;
                     VR_1200 = -100;
                   }
-                 else if ( abs(Destination_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor) < 30 && abs(Destination_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor) > 10)
+                 else if ( abs(Destination_Coor_InWorld.angle_coor - AGV_Current_Coor_InWorld.angle_coor) < 30)
                  {
                 	VL_1200 =  100;
                     VR_1200 = -100;
@@ -341,6 +351,8 @@ void AGV_Running()
                     if (twoDMissingCnt > 100)
                     {
                         OutOfTrack = 0x01;
+                        nEvent = 2;
+                        nAgvWorkMode = AGV_MODE_SUSPENDED ;
                     }
                     //ToDo: 旋转速度插补 Rotate_Process_Movement_Command()
                     //ToDo: 旋转运动控制 Rotate_Movemnet_control_left()
@@ -366,7 +378,7 @@ void AGV_Running()
                 	VL_1200 =  - 100;
                    	VR_1200 = 100;
                 }
-                 else if ( abs(Destination_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor) < 30 && abs(Destination_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor) > 10)
+                else if ( abs(Destination_Coor_InWorld.angle_coor - AGV_Current_Coor_InWorld.angle_coor) < 30)
                	{
                 	VL_1200 =  - 100;
                    VR_1200 = 100;
@@ -383,6 +395,8 @@ void AGV_Running()
                     if (twoDMissingCnt > 100)
                     {
                         OutOfTrack = 0x01;
+                        nEvent = 2;
+                        nAgvWorkMode = AGV_MODE_SUSPENDED ;
                     }
                     //ToDo: 旋转速度插补 Rotate_Process_Movement_Command()
                     //ToDo: 旋转运动控制 Rotate_Movemnet_control_Right()
