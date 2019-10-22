@@ -34,29 +34,28 @@ Coordinate_Class_t Odom_Calib(float velocity_x, float angular_velocity_angle)
 	float temp_y, temp_x;
    // struct Coordinate_Class Coor_delta;
 
-	velocity_x=abs(velocity_x);
+
+	//velocity_x=abs(velocity_x);
 	delta_distance = velocity_x * time_s;
 
-	Coor_delta.angle_coor = angular_velocity_angle * 0.012;
+	Coor_delta.angle_coor = angular_velocity_angle * 0.01;
 
 	angle += Coor_delta.angle_coor;
 
 	//angle = Angle_Trans(angle, 0);
 
-	Odom_Coor.angle_coor = PGV150_coor.angle_coor + angle;
+	Odom_Coor.angle_coor = PGV150_coor.angle_coor +angle;
 	//printf("angle_coor=%f\n",Odom_Coor.angle_coor);      //里程计调试，角度
-	//Coor_delta.x_coor += delta_distance * Cos_Lookup(Odom_Coor.angle_coor);
+	temp_y = sin(Odom_Coor.angle_coor * M_PI / 180.0);
+	Coor_delta.y_coor += (delta_distance * temp_y);
+
 	temp_x = cos(Odom_Coor.angle_coor * M_PI / 180.0);
 	Coor_delta.x_coor += (delta_distance * temp_x);
 
-	//Coor_delta.y_coor += delta_distance * Sin_Lookup(Odom_Coor.angle_coor);
-	temp_y = sin(Odom_Coor.angle_coor * M_PI / 180.0);
-	//Coor_delta.y_coor += (delta_distance * sin(Odom_Coor.angle_coor * M_PI / 180.0));
-	Coor_delta.y_coor += (delta_distance * temp_y);
-
 	Odom_Coor.x_coor = PGV150_coor.x_coor + Coor_delta.x_coor;
+
 	Odom_Coor.y_coor = PGV150_coor.y_coor + Coor_delta.y_coor;
-	//printf("x_coor=%f,y_coor=%f,velocity_x=%f\n",Odom_Coor.x_coor,Odom_Coor.y_coor,velocity_x);  //里程计距离调试
+   // printf("x_coor=%f,y_coor=%f,velocity_x=%f\n",Odom_Coor.x_coor,Odom_Coor.y_coor,velocity_x);  //里程计距离调试
 
 
 

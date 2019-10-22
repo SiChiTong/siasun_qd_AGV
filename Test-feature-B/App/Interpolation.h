@@ -10,6 +10,7 @@
 
 
 int Distance_Symbols ;  //指示待插补距离的符号
+int acc_flag;//加速段标识符
 
 struct Interpolation_Parameter_t   //插补参数、参数暂存
 {

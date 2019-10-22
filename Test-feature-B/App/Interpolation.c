@@ -127,14 +127,16 @@ int Interpolation_Cal_Velocity(float current_distance, struct Interpolation_Para
 	//获取插补速度
 
 
-	if (current_distance < 0.0)
+/*	if (current_distance < 0.0)
 	{
 		printf("1 !!!!!!\n");
 		target_velocity = Interpolation_Parameter.min_velocity_abs * Distance_Symbols;
-
 	}
-	else if (current_distance < acc_distance)    //在加速区
+	*/
+
+	 if (current_distance < acc_distance)    //在加速区
 	{
+		acc_flag = 1;
 		printf("2 !!!!!!!!\n");
 		target_velocity = sqrtf(2 * current_distance * Interpolation_Parameter.accleration_abs + Interpolation_Parameter.min_velocity_abs * Interpolation_Parameter.min_velocity_abs) * Distance_Symbols;
 
@@ -144,13 +146,13 @@ int Interpolation_Cal_Velocity(float current_distance, struct Interpolation_Para
 		printf("3 !!!!!!\n");
 		target_velocity = Interpolation_Parameter.max_velocity_abs * Distance_Symbols;
 	}
-	else if (current_distance < (acc_distance + const_distance + dec_distance-10))    //在减速区
+	else if (current_distance < (acc_distance + const_distance + dec_distance))    //在减速区
 	{
 		printf("4 !!!!!!\n");
 		target_velocity = sqrtf(Interpolation_Parameter.max_velocity_abs * Interpolation_Parameter.max_velocity_abs - 2 * (current_distance - acc_distance - const_distance) * Interpolation_Parameter.accleration_abs) * Distance_Symbols;
 	}
 
-	else if (current_distance < (acc_distance + const_distance + dec_distance + slowly_distance-10)) //插补距离结束
+	else if (current_distance < (acc_distance + const_distance + dec_distance + slowly_distance)) //插补距离结束
 	{
 		printf("5 !!!!!!\n");
 		target_velocity = Interpolation_Parameter.min_velocity_abs * Distance_Symbols;
@@ -165,10 +167,10 @@ int Interpolation_Cal_Velocity(float current_distance, struct Interpolation_Para
 	else
 	{
 		printf("over!!!!!!\n");
-	//	 target_velocity = Interpolation_Parameter.min_velocity_abs * Distance_Symbols;
+		 target_velocity = Interpolation_Parameter.min_velocity_abs * Distance_Symbols;
 		float temp = abs(acc_distance + const_distance + dec_distance + slowly_distance - current_distance);
 
-		target_velocity = 0.0;
+		//target_velocity = 0.0;
 		target_distance = 0.0;
 		Interpolation_State = IS_Interpolated;
 		return 0;

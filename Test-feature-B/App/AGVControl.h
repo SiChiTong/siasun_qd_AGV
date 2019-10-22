@@ -13,6 +13,7 @@
 #define AGV_MODE_OP          3    //操作模式
 
 
+void track_resrt();
 void AGV_Running();
 void AGV_RUN();
 void AGV_StandBy();

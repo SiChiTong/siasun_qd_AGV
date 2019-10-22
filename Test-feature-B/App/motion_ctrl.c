@@ -35,7 +35,8 @@ extern float VR_1200;    //发送给PLC右轮速度
 float wControl;   //旋转角速度
 
 extern float PID_result;
-
+extern int judge_axis;
+extern float target_velocity;
 //enum Interpolation_State_Enum State;
 
 int Run_Movement_Class(Coordinate_Class_t Current_Coor, struct Interpolation_Parameter_t Interpolation_Parameter_temp)
@@ -113,7 +114,7 @@ void Process_Movement_Command()
 
 void Movement_Control()
 {
-
+	float V_err;
     float vx;
 
     int stop;
@@ -149,8 +150,6 @@ void Movement_Control()
     }
     Error_Coor_InAGV.angle_coor = abs(Error_Coor_InAGV.angle_coor);
 
-    printf("Err_Angle = %f\n", Error_Coor_InAGV.angle_coor);
-
     vx = AGV_Target_Velocity_InAGV.velocity_x;
 
     printf("vx = %f\n", vx);
@@ -158,23 +157,61 @@ void Movement_Control()
     //如果直行
     if (Add_Command_Line == 1)
     {
-        if ((Error_Coor_InAGV.x_coor < 7.0) && (Error_Coor_InAGV.y_coor < 7.0) && (Error_Coor_InAGV.angle_coor < 10.0) && (Error_Coor_InAGV.x_coor > -7.0) && (Error_Coor_InAGV.y_coor > -7.0))
-        {
-            VL_1200 = 0.0;
-            VR_1200 = 0.0;
-            stop = 1;
-         //   Interpolation_State = No_Interpolation;
-           // virtual_agv_coor_init_flag = 0;
+    	//printf("Error_X = %f,Error_Y = %f\n",Error_Coor_InAGV.x_coor,Error_Coor_InAGV.y_coor);
+    	switch(judge_axis)
+    	{
+    		case 1: //X方向
+    			if (abs(Error_Coor_InAGV.x_coor) <= 2.0) {
+    				printf("停车区间\n");
+    			     VL_1200 = 0.0;
+    			     VR_1200 = 0.0;
+    			     target_velocity=0;
+    			     stop = 1;
+    			     Interpolation_State = IS_Interpolated;
+    			     current_distance =0;
+    			     printf("v = %f\n", target_velocity);
+    			}
+    			break;
+
+    		case 2: //Y方向
+    			if (abs(Error_Coor_InAGV.y_coor) <= 2.0) {
+    				printf("停车区间\n");
+    				VL_1200 = 0.0;
+    				VR_1200 = 0.0;
+    				target_velocity=0;
+         		     stop = 1;
+         		    Interpolation_State = IS_Interpolated;
+         		   current_distance = 0;
+         		  printf("v = %f\n", target_velocity);
+    			}
+    			break;
+    	}
+
+        	if (abs(vx - PID_result) - abs(vx + PID_result)>=1 ) //0/1/2
+        		{
+        			printf("偏外\n");
+        			V_err =(abs(vx - PID_result) - abs(vx + PID_result))*vx*0.002*Z;
+     /*
+        		if (abs(vx) > 1100){
+        			printf("高速偏外\n");
+        			V_err =(abs(vx - PID_result) - abs(vx + PID_result))*HZ;
+        	    	}
+*/
+        	    	printf ("速度插补= %f\n",V_err);
+
+        			VL_1200 = vx + PID_result;
+        			VR_1200 = vx - PID_result+V_err;
+        			stop = 0;
+        		}
+        	else
+        	     {
+        			printf("偏里\n");
+        	        VL_1200 = vx + PID_result;
+        	        VR_1200 = vx - PID_result;
+        	        stop = 0;
+        	        	}
         }
-        else
-        {
-          //  VL_1200 = vx + PID_result*Distance_Symbols;
-           // VR_1200 = vx - PID_result*Distance_Symbols;
-            VL_1200 = vx + PID_result;
-             VR_1200 = vx - PID_result;
-            stop = 0;
-        }
-    }
+
 
 /*
         //如果旋转

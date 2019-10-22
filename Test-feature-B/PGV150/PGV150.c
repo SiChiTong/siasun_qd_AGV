@@ -385,11 +385,11 @@ int PGV_AnalyzeData()
 
 void PGV_Cal_Coor()
 {
-	PGV150_coor.x_coor = (tag_control_num % 10) * 100.0 + x_deviation;
-	PGV150_coor.y_coor = (tag_control_num / 10) * 100.0 + y_deviation;
+	PGV150_coor.y_coor = (tag_control_num % 34) * 100.0 + y_deviation;
+	PGV150_coor.x_coor = (tag_control_num / 34) * 100.0 + x_deviation;
 	if ((angle_deviation > 180.0) && (angle_deviation < 360.0))
 	{
-		PGV150_coor.angle_coor = 360.0 - angle_deviation;
+		PGV150_coor.angle_coor = 360.0 - angle_deviation;//摄像机存在2度误差
 	}
 	else if (0 < angle_deviation <= 180.0)
 	{

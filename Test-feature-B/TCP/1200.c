@@ -11,12 +11,13 @@
 #include <buffer.h>
 #include <protocol.h>
 #include <errno.h>
+#include <agv.h>
 
 //float command_x, command_y, command_angle;
 float vx_ByEncoder, angular_velocity_angle_ByEncoder, angular_velocity_rad_ByEncoder;
 int vx_ByEncoder_int;
 
-extern struct Velocity_Class AGV_Current_Velocity_By_Encoder;
+//extern struct Velocity_Class AGV_Current_Velocity_By_Encoder;
 
 extern int Add_Command_Line;
 extern int Add_Command_Rotate;

@@ -65,18 +65,50 @@ int Add_Command_Line, Add_Command_Rotate;
 //由触摸屏得到目标坐标
 void Gcode_G0()
 {
-    Destination_Coor.x_coor = command_x * 1.0;
-    Destination_Coor.y_coor = command_y * 1.0;
-    Destination_Coor.angle_coor = command_angle * 1.0;
-    //printf("Destination_Coor_X = %f, Destination_Coor_Y = %f, Destination_Coor_A = %f\n", Destination_Coor.x_coor, Destination_Coor.y_coor, Destination_Coor.angle_coor);
+/*
+	static int x;
+	static int y;
+
+	 if(abs(AGV_Current_Coor_InWorld.y_coor-900)<7 && abs(AGV_Current_Coor_InWorld.x_coor-700)<3){
+	   x = 700;//700/0
+	   y = 2000;//3300/500
+	}
+
+	else if(abs(AGV_Current_Coor_InWorld.y_coor-2000)<3 && abs(AGV_Current_Coor_InWorld.x_coor-700)<7){
+		x = 0;
+		y = 2000;
+	}
+
+	else if(abs(AGV_Current_Coor_InWorld.x_coor) < 3 && abs(AGV_Current_Coor_InWorld.y_coor - 2000) < 7){
+		x = 0;
+		y = 900;
+	}
+	else if(abs(AGV_Current_Coor_InWorld.x_coor ) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 900) <3){
+		x = 700;
+		y = 900;
+	}
+/*
+	else if(abs(AGV_Current_Coor_InWorld.x_coor -700) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 1200) < 2){
+		x = 700;
+		y=3300;
+	}
+
+*/
+
+	Destination_Coor_InWorld.x_coor = command_x * 1.0;
+	//Destination_Coor_InWorld.x_coor = x;
+	Destination_Coor_InWorld.y_coor = command_y * 1.0;
+	//Destination_Coor_InWorld.y_coor = y;
+   // Destination_Coor.angle_coor = Destination_Coor_InWorld.angle_coor; //屏幕获取目标角度
+    printf("目标点位： %f, %f,  %f\n", Destination_Coor_InWorld.x_coor, Destination_Coor_InWorld.y_coor, Destination_Coor_InWorld.angle_coor);
     //printf("C_X = %d, C_Y = %d, C_A = %d\n", command_x, command_y, command_angle);
 
-
+    // printf("目标点位：%d,%d\n",x,y);
     //Coordinate_Class_t Destination_Coor_temp;
     if ((Add_Command_Line == 1) || (Add_Command_Rotate == 1))
     {
         //Destination_Coor_temp = Destination_Coor;
-        Destination_Coor_InWorld = Destination_Coor;
+       // Destination_Coor_InWorld = Destination_Coor;
         Interpolation_State = No_Interpolation;
     }
 
@@ -149,7 +181,7 @@ int main ()
 		Location_AGV();         //AGV定位
         Gcode_G0();  //由触摸屏得到目标坐标
 
-		printf("command_line = %d, command_rotate = %d, command_angle = %d\n", Add_Command_Line, Add_Command_Rotate, command_angle);
+		printf("command_line = %d, command_rotate = %d\n", Add_Command_Line, Add_Command_Rotate);
 
 		Prase_Sensor_Data();    //传感器处理
         DirectionDetermination();  //判断车体的运行方向

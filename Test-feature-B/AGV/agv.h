@@ -22,6 +22,6 @@ void Location_AGV();       //车体定位
 void get_PID();            //获取PID偏差值
 
 //struct Coordinate_Class Coor_delta;
-
+struct Velocity_Class AGV_Current_Velocity_By_Encoder;    //PLC上传由编码器得到速度
 
 #endif //IMUTEST_AGV_H
