@@ -30,6 +30,6 @@ float x_deviation;
 float y_deviation;
 float angle_deviation;
 int result;
-int data_ok;
+  //int data_Ok;
 
 #endif /* PGV150_H_ */

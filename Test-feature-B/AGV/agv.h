@@ -17,11 +17,15 @@
 
 
 void paramter_define();    //车辆参数定义
-void Prase_Sensor_Data();  //传感器处理
-void Location_AGV();       //车体定位
-void get_PID();            //获取PID偏差值
+//void Prase_Sensor_Data();  //传感器处理
+void *myprocess2();
+void *myprocess3();
+void *myprocess4();
+//void Location_AGV();       //车体定位
+//void get_PID();            //获取PID偏差值
 
 //struct Coordinate_Class Coor_delta;
 struct Velocity_Class AGV_Current_Velocity_By_Encoder;    //PLC上传由编码器得到速度
+int data_Ok;
 
 #endif //IMUTEST_AGV_H

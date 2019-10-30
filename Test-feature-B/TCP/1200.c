@@ -12,6 +12,7 @@
 #include <protocol.h>
 #include <errno.h>
 #include <agv.h>
+#include <Thread_Pool.h>
 
 //float command_x, command_y, command_angle;
 float vx_ByEncoder, angular_velocity_angle_ByEncoder, angular_velocity_rad_ByEncoder;
@@ -57,7 +58,7 @@ void get_PLC_init()
     printf("connnect 192.168.1.10:5000\n");
 
 }
-
+/*
 void get_pthread()
 {
 	int rc;
@@ -70,16 +71,15 @@ void get_pthread()
 		return;
 	}
 }
+*/
 
-
-void *fuck_tcp(void *t)
+void *myprocess0(void *t)  //fuck_tcp
 {
 
 
     buffer_init(&buf);
 
-    while (1)
-    {
+
         PLC_send(buffer);     //套接字发送(放主函数会有接收延迟)
         char tmp[26];
         int len = read(sock, tmp, sizeof(tmp));    //套接字接收
@@ -95,12 +95,12 @@ void *fuck_tcp(void *t)
             exit(0);
         }
         int n = 0;
-        while (1)
-        {
+     //   while (1)
+   //     {
             char *msg = parse_packet(&buf);
             if (!msg)
             {
-                break;
+              //  break;
             }
             n ++;
             printf("< %s\n", msg);
@@ -109,12 +109,12 @@ void *fuck_tcp(void *t)
                 printf(" [Mergerd Packed]\n");
             }
             free(msg);
-        }
-    }
-    return 0;
+     //   }
 
+    //return NULL;
 
 }
+
 
 int PLC_send(char buf[])
 {

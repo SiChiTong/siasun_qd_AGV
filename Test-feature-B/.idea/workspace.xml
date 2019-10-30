@@ -23,15 +23,39 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AGV/agv.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="73" column="1" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/App/motion_ctrl.c" />
         <option value="$PROJECT_DIR$/App/Movement.c" />
         <option value="$PROJECT_DIR$/Odom_Calib/Odom_Calib.c" />
         <option value="$PROJECT_DIR$/../Test-feature-B-old/main.c" />
-        <option value="$PROJECT_DIR$/AGV/agv.c" />
+        <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/App/AGVControl.c" />
+        <option value="$PROJECT_DIR$/App/motion_ctrl.c" />
+        <option value="$PROJECT_DIR$/AGV/agv.c" />
+        <option value="$PROJECT_DIR$/App/Interpolation.c" />
       </list>
     </option>
   </component>
@@ -54,9 +78,9 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Test-feature-C" />
+    <property name="last_opened_file_path" value="$USER_HOME$/github/Test-feature-B" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../Test-feature-B-old/main.c" />
-    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/../Test-feature-B-old" />
+    <property name="two.files.diff.last.used.folder" value="$USER_HOME$/github/Test-feature-B" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -90,16 +114,20 @@
       <workItem from="1568884118766" duration="2979000" />
       <workItem from="1570498983714" duration="790000" />
       <workItem from="1571311170829" duration="564000" />
+      <workItem from="1571883572567" duration="1835000" />
+      <workItem from="1572263679179" duration="68000" />
+      <workItem from="1572320238741" duration="1066000" />
+      <workItem from="1572330264416" duration="620000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4333000" />
+    <option name="totallyTimeSpent" value="7922000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-4" width="1865" height="1084" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25619835" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2694215" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -114,6 +142,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="CMake" order="11" />
+      <window_info anchor="bottom" id="Messages" order="12" visible="true" weight="0.32947367" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -124,5 +153,21 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AGV/agv.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="73" column="1" selection-start-line="73" selection-start-column="1" selection-end-line="73" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

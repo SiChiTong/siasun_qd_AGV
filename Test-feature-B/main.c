@@ -29,6 +29,7 @@
 #include "AGVControl.h"
 #include "AGV/agv.h"
 #include "motion_ctrl.h"
+#include <Thread_Pool.h>
 
 
 
@@ -43,8 +44,8 @@ extern Interpolation_State_Enum_m Interpolation_State;
 extern int command_x;
 extern int command_y;
 extern int command_angle;
-
-
+extern int stop;
+extern int stop_flage;
 
 char buffer[8];    //发送PLC数组
 
@@ -65,56 +66,74 @@ int Add_Command_Line, Add_Command_Rotate;
 //由触摸屏得到目标坐标
 void Gcode_G0()
 {
-/*
+
+	/*
 	static int x;
 	static int y;
 
-	 if(abs(AGV_Current_Coor_InWorld.y_coor-900)<7 && abs(AGV_Current_Coor_InWorld.x_coor-700)<3){
+	static int flage =0;
+	if(flage != 1){
+		flage =1;
+		stop_flage =300;
+	}
+
+/*
+	 if(abs(AGV_Current_Coor_InWorld.y_coor-900)<7 && abs(AGV_Current_Coor_InWorld.x_coor-700)<7 && stop_flage>100){
 	   x = 700;//700/0
 	   y = 2000;//3300/500
+	   stop_flage=0;
 	}
 
-	else if(abs(AGV_Current_Coor_InWorld.y_coor-2000)<3 && abs(AGV_Current_Coor_InWorld.x_coor-700)<7){
+	else if(abs(AGV_Current_Coor_InWorld.y_coor-2000)<7 && abs(AGV_Current_Coor_InWorld.x_coor-700)<7 &&  stop_flage>100 ){
 		x = 0;
 		y = 2000;
+		stop_flage=0;
 	}
 
-	else if(abs(AGV_Current_Coor_InWorld.x_coor) < 3 && abs(AGV_Current_Coor_InWorld.y_coor - 2000) < 7){
+	else if(abs(AGV_Current_Coor_InWorld.x_coor) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 2000) < 7&&  stop_flage>100 ){
 		x = 0;
 		y = 900;
+		stop_flage=0;
 	}
-	else if(abs(AGV_Current_Coor_InWorld.x_coor ) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 900) <3){
+	else if(abs(AGV_Current_Coor_InWorld.x_coor ) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 900) <7 &&  stop_flage>100 ){
 		x = 700;
 		y = 900;
-	}
-/*
-	else if(abs(AGV_Current_Coor_InWorld.x_coor -700) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 1200) < 2){
-		x = 700;
-		y=3300;
+		stop_flage=0;
 	}
 
-*/
+		 if(abs(AGV_Current_Coor_InWorld.x_coor) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 3300) < 7&&  stop_flage>100 ){
+		x = 0;
+		y = 500;
+		stop_flage=0;
+	}
+	else if(abs(AGV_Current_Coor_InWorld.x_coor ) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 500) <7 &&  stop_flage>100 ){
+		x = 0;
+		y = 3300;
+		stop_flage=0;
+	}
+
+		 */
+
 
 	Destination_Coor_InWorld.x_coor = command_x * 1.0;
 	//Destination_Coor_InWorld.x_coor = x;
 	Destination_Coor_InWorld.y_coor = command_y * 1.0;
 	//Destination_Coor_InWorld.y_coor = y;
    // Destination_Coor.angle_coor = Destination_Coor_InWorld.angle_coor; //屏幕获取目标角度
-    printf("目标点位： %f, %f,  %f\n", Destination_Coor_InWorld.x_coor, Destination_Coor_InWorld.y_coor, Destination_Coor_InWorld.angle_coor);
+    printf("Destination： %f, %f,  %f\n", Destination_Coor_InWorld.x_coor, Destination_Coor_InWorld.y_coor, Destination_Coor_InWorld.angle_coor);//目标点
     //printf("C_X = %d, C_Y = %d, C_A = %d\n", command_x, command_y, command_angle);
 
     // printf("目标点位：%d,%d\n",x,y);
     //Coordinate_Class_t Destination_Coor_temp;
+    /*
     if ((Add_Command_Line == 1) || (Add_Command_Rotate == 1))
     {
         //Destination_Coor_temp = Destination_Coor;
        // Destination_Coor_InWorld = Destination_Coor;
         Interpolation_State = No_Interpolation;
     }
-
+*/
 }
-
-
 
 
 
@@ -129,9 +148,9 @@ void init_System()
     PGV_init();          //相机初始化
     get_PLC_init();      //1200数据接收初始化
 
-
-    get_pthread();  //开TCP线程
-    get_PID();      //开PID线程
+    pool_init (4);  //线程池初始化，其中共4个活动线程
+   // get_pthread();  //开TCP线程
+    //get_PID();      //开PID线程
 }
 
 
@@ -175,19 +194,16 @@ int main ()
         buffer[6] = Vr.ldata[2];
         buffer[7] = Vr.ldata[3];
 
-
-
-		get_PLC_Data();     //获取车体信息
-		Location_AGV();         //AGV定位
+        get_PLC_Data();     //获取车体信息
         Gcode_G0();  //由触摸屏得到目标坐标
 
-		printf("command_line = %d, command_rotate = %d\n", Add_Command_Line, Add_Command_Rotate);
+        Pthread_Analy();//线程处理函数
 
-		Prase_Sensor_Data();    //传感器处理
+        //Prase_Sensor_Data();    //传感器处理
+        Location_AGV();         //AGV定位
         DirectionDetermination();  //判断车体的运行方向
-
 		AGV_RUN();
-
+ printf("stop=%d\n",stop);
 
 
 	}

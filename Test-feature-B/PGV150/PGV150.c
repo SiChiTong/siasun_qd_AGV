@@ -389,15 +389,14 @@ void PGV_Cal_Coor()
 	PGV150_coor.x_coor = (tag_control_num / 34) * 100.0 + x_deviation;
 	if ((angle_deviation > 180.0) && (angle_deviation < 360.0))
 	{
-		PGV150_coor.angle_coor = 360.0 - angle_deviation;//摄像机存在2度误差
+		PGV150_coor.angle_coor = 360.0 - angle_deviation-1.56;//1.6/1.7/2/摄像机存在2度误差
 	}
 	else if (0 < angle_deviation <= 180.0)
 	{
 		PGV150_coor.angle_coor = - angle_deviation;
 	}
-	data_ok = 1;
+	//data_Ok = 1;
 
-	//sleep(10);
 
 	//printf("X_coor = %f, Y_coor = %f, Angle_coor = %f\n", PGV150_coor.x_coor, PGV150_coor.y_coor, PGV150_coor.angle_coor);
 }

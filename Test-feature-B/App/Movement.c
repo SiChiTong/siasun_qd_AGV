@@ -13,11 +13,13 @@
 
 extern Coordinate_Class_t Destination_Coor_InWorld;    //终点坐标
 extern float target_velocity;
+extern struct Interpolation_Parameter_t Interpolation_Parameter;    //插补参数、参数暂存
 
 Velocity_Class_t Target_Velocity_InAGV;     //目标速度
 Coordinate_Class_t Target_Coor_InWorld;
 
 
+/*
 Velocity_Class_t Velocity_Absolute_To_Relative(Velocity_Class_t Absolute_Velocity, Velocity_Class_t Relative_Velocity, Coordinate_Class_t Base_Coor)
 {
 	float Cos_Angle = cos(Base_Coor.angle_coor * M_PI / 180.0);
@@ -31,6 +33,7 @@ Velocity_Class_t Velocity_Absolute_To_Relative(Velocity_Class_t Absolute_Velocit
 
 	return Relative_Velocity;
 }
+*/
 
 //************************************
 // FullName:  Movement_Init
@@ -39,29 +42,29 @@ Velocity_Class_t Velocity_Absolute_To_Relative(Velocity_Class_t Absolute_Velocit
 // Parameter: struct Interpolation_Parameter_t Input_Para  插补参数
 // Description: 计算加减速时间及距离
 //************************************
-int Movement_Init(struct Coordinate_Class Origin_Coor, struct Interpolation_Parameter_t Input_Para, struct Interpolation_Parameter_t Interpolation_Parameter)
+int Movement_Init()
 {
+	struct Coordinate_Class Destination_Coor_InOrigin;    //起点坐标系下的终点坐标
 	int temp_result;
-	Origin_Coor_InWorld = Origin_Coor;  //保存初始地标
-	Destination_Coor_InOrigin.x_coor = Destination_Coor_InWorld.x_coor - Origin_Coor_InWorld.x_coor;    //计算目标点在起点坐标系下的相对坐标
-	Destination_Coor_InOrigin.y_coor = Destination_Coor_InWorld.y_coor - Origin_Coor_InWorld.y_coor;
-	Destination_Coor_InOrigin.angle_coor = Destination_Coor_InWorld.angle_coor - Origin_Coor_InWorld.angle_coor;
+
+	//Origin_Coor_InWorld = Virtual_AGV_Current_Coor_InWorld;  //保存初始地标
+	Destination_Coor_InOrigin.x_coor = Destination_Coor_InWorld.x_coor - Virtual_AGV_Current_Coor_InWorld.x_coor;    //计算目标点在起点坐标系下的相对坐标
+	Destination_Coor_InOrigin.y_coor = Destination_Coor_InWorld.y_coor - Virtual_AGV_Current_Coor_InWorld.y_coor;
+	//Destination_Coor_InOrigin.angle_coor = Destination_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor;
 
 	//printf("Destination_Coor_InOrigin.X=%f,Y=%f,A=%f\n",Destination_Coor_InOrigin.x_coor,Destination_Coor_InOrigin.y_coor,Destination_Coor_InOrigin.angle_coor);
-	if (abs(Destination_Coor_InOrigin.x_coor) > 90 || abs(Destination_Coor_InOrigin.y_coor) > 90 || abs(Destination_Coor_InOrigin.angle_coor) > 85)
+	if (abs(Destination_Coor_InOrigin.x_coor) > 90 || abs(Destination_Coor_InOrigin.y_coor) > 90 )
     {
-     //   float input_distance_abs = Cal_Destination_Displacement(Destination_Coor_InOrigin);   //计算待插补的距离
-        float input_distance_abs = sqrt(Destination_Coor_InOrigin.x_coor*Destination_Coor_InOrigin.x_coor+Destination_Coor_InOrigin.y_coor*Destination_Coor_InOrigin.y_coor);
+       // float input_distance_abs = Cal_Destination_Displacement(Destination_Coor_InOrigin);   //计算待插补的距离
+        float input_distance_abs = sqrtf(Destination_Coor_InOrigin.x_coor*Destination_Coor_InOrigin.x_coor+Destination_Coor_InOrigin.y_coor*Destination_Coor_InOrigin.y_coor);
         printf("input_distance_abs=%f",input_distance_abs);
-        Interpolation_Parameter = Update_Interpolation_Parameter(Input_Para);    //更新插补参数
+       // Interpolation_Parameter = Update_Interpolation_Parameter(Input_Para);    //更新插补参数
         temp_result = Interpolation_Init(input_distance_abs, Interpolation_Parameter);
-
-
     }
+
 	else
-    {
 	    temp_result = -1;
-    }
+
 
 
 	return temp_result;
@@ -73,6 +76,7 @@ int Movement_Init(struct Coordinate_Class Origin_Coor, struct Interpolation_Para
 // Parameter: struct Coordinate_Class Destination_Coor_InOrigin
 // Description: 当前位置距起点位置
 //************************************
+/*
 Coordinate_Class_t Cal_Projection_Coor(Coordinate_Class_t Current_Coor_InOrigin)
 {
 	Coordinate_Class_t Projection_Coor;
@@ -87,6 +91,7 @@ Coordinate_Class_t Cal_Projection_Coor(Coordinate_Class_t Current_Coor_InOrigin)
 
 	return Projection_Coor;
 }
+*/
 
 //************************************
 // FullName:  Cal_Current_Coor_InOrigin
@@ -94,6 +99,7 @@ Coordinate_Class_t Cal_Projection_Coor(Coordinate_Class_t Current_Coor_InOrigin)
 // Parameter: struct Coordinate_Class Current_Coor_InOrigin
 // Description: 当前位置距起点位置
 //************************************
+/*
 float Cal_Current_Coor_InOrigin(Coordinate_Class_t Current_Coor_InOrigin)
 {
 	float angle_equivalent_temp, distance_temp;
@@ -103,7 +109,7 @@ float Cal_Current_Coor_InOrigin(Coordinate_Class_t Current_Coor_InOrigin)
 	printf("  Current_Coor_InOrigin.x_coor = %f ,  y = %f , a = %f\n ",  Current_Coor_InOrigin.x_coor ,  Current_Coor_InOrigin.y_coor ,  Current_Coor_InOrigin.angle_coor);//已走距离检验
 	return distance_temp;
 }
-
+*/
 //************************************
 // FullName:  Assign_Velocity
 // Returns:   Velocity_Class_t
@@ -111,6 +117,7 @@ float Cal_Current_Coor_InOrigin(Coordinate_Class_t Current_Coor_InOrigin)
 // Parameter: float velocity
 // Description: 根据当前坐标在起点坐标系下的坐标，将速度分配给各个轴
 //************************************
+/*
 Velocity_Class_t Assign_Velocity(Coordinate_Class_t Current_Coor_InWorld, float velocity)
 {
 	float k = 0.0;
@@ -127,7 +134,7 @@ Velocity_Class_t Assign_Velocity(Coordinate_Class_t Current_Coor_InWorld, float 
 
 	return Target_Velocity_InAGV;
 }
-
+*/
 
 
 //************************************
@@ -136,6 +143,7 @@ Velocity_Class_t Assign_Velocity(Coordinate_Class_t Current_Coor_InWorld, float 
 // Parameter: struct Coordinate_Class Destination_Coor_InOrigin
 // Description: 计算待插补的距离
 //************************************
+/*
 float Cal_Destination_Displacement(Coordinate_Class_t Destination_Coor_InOrigin)
 {
 	//储存各个轴在起点坐标的距离
@@ -152,7 +160,7 @@ float Cal_Destination_Displacement(Coordinate_Class_t Destination_Coor_InOrigin)
 
 	return distance_InOrigin_ABS;
 }
-
+*/
 //************************************
 // FullName:  Movement_Cal_Velocity
 // Returns:   int
@@ -162,31 +170,32 @@ float Cal_Destination_Displacement(Coordinate_Class_t Destination_Coor_InOrigin)
 int Movement_Cal_Velocity(Coordinate_Class_t Current_Coor_InWorld, struct Interpolation_Parameter_t Interpolation_Parameter)
 {
 	Coordinate_Class_t Current_Coor_InOrigin;
-	Current_Coor_InOrigin.x_coor = Current_Coor_InWorld.x_coor - Origin_Coor_InWorld.x_coor;    //获取当前坐标在起点坐标系下的坐标
-	Current_Coor_InOrigin.y_coor = Current_Coor_InWorld.y_coor - Origin_Coor_InWorld.y_coor;
-	Current_Coor_InOrigin.angle_coor = Current_Coor_InWorld.angle_coor - Origin_Coor_InWorld.angle_coor;
-	Current_Coor_InOrigin.angle_rad = Current_Coor_InWorld.angle_rad - Origin_Coor_InWorld.angle_rad;
-	Coordinate_Class_t Target_Coor_InOrigin = Cal_Projection_Coor(Current_Coor_InOrigin);     //计算当前坐标向量在目标坐标向量上的投影
+	Current_Coor_InOrigin.x_coor = Current_Coor_InWorld.x_coor - Virtual_AGV_Current_Coor_InWorld.x_coor;    //获取当前坐标在起点坐标系下的坐标
+	Current_Coor_InOrigin.y_coor = Current_Coor_InWorld.y_coor - Virtual_AGV_Current_Coor_InWorld.y_coor;
+	Current_Coor_InOrigin.angle_coor = Current_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor;
+	Current_Coor_InOrigin.angle_rad = Current_Coor_InWorld.angle_rad - Virtual_AGV_Current_Coor_InWorld.angle_rad;
+	//Coordinate_Class_t Target_Coor_InOrigin = Cal_Projection_Coor(Current_Coor_InOrigin);     //计算当前坐标向量在目标坐标向量上的投影
 
 	//float current_distance = Cal_Current_Coor_InOrigin(Target_Coor_InOrigin);     //获取目标坐标在起点坐标下的距离，当前坐标向量
 	//current_distance = Cal_Current_Coor_InOrigin(Target_Coor_InOrigin);     //获取目标坐标在起点坐标下的距离，当前坐标向量
-	current_distance = sqrtf(( AGV_Current_Coor_InWorld.x_coor - Virtual_AGV_Current_Coor_InWorld.x_coor) * ( AGV_Current_Coor_InWorld.x_coor - Virtual_AGV_Current_Coor_InWorld.x_coor) + ( AGV_Current_Coor_InWorld.y_coor - Virtual_AGV_Current_Coor_InWorld.y_coor) * ( AGV_Current_Coor_InWorld.y_coor - Virtual_AGV_Current_Coor_InWorld.y_coor)   );
+	current_distance = sqrtf( ( Current_Coor_InOrigin.x_coor) * (Current_Coor_InOrigin.x_coor) + ( Current_Coor_InOrigin.y_coor) * ( Current_Coor_InOrigin.y_coor) );
 	int Inter_result = Interpolation_Cal_Velocity(current_distance, Interpolation_Parameter);     //计算插补结果
 
 
 	Velocity_Class_t Target_Velocity_InOrigin;    //期望坐标坐标系下的速度
 
-	Target_Velocity_InOrigin = Assign_Velocity(Target_Coor_InOrigin, target_velocity);    //将速度分配给各个轴
-
+	//Target_Velocity_InOrigin = Assign_Velocity(Target_Coor_InOrigin, target_velocity);    //将速度分配给各个轴
+	 Target_Velocity_InAGV.velocity_x = target_velocity;
 	//将起点坐标系中的速度旋转至AGV坐标系
 	//Target_Velocity_InAGV = Velocity_Absolute_To_Relative(Target_Velocity_InOrigin, Target_Velocity_InAGV, Target_Coor_InOrigin);
-	Target_Velocity_InAGV =Target_Velocity_InOrigin;
+	//Target_Velocity_InAGV =Target_Velocity_InOrigin;
 	//计算期望坐标在世界坐标系下的坐标
+	 /*
 	Target_Coor_InWorld.x_coor = Origin_Coor_InWorld.x_coor + Target_Coor_InOrigin.x_coor;
 	Target_Coor_InWorld.y_coor = Origin_Coor_InWorld.y_coor + Target_Coor_InOrigin.y_coor;
 	Target_Coor_InWorld.angle_coor = Origin_Coor_InWorld.angle_coor + Target_Coor_InOrigin.angle_coor;
 	Target_Coor_InWorld.angle_rad = Origin_Coor_InWorld.angle_rad + Target_Coor_InOrigin.angle_rad;
-
+*/
 		printf("Inter_result=%d\n",Inter_result);
 	return Inter_result;
 

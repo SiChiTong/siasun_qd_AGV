@@ -33,7 +33,7 @@ typedef enum
 //uint16_t Motionstyle      = MOTIONSTATE_ONSTOPING;
 
 
-int Run_Movement_Class(Coordinate_Class_t Current_Coor, struct Interpolation_Parameter_t Interpolation_Parameter_temp);
+void Run_Movement_Class();
 void Process_Movement_Command();
 void Movement_Control();
 
