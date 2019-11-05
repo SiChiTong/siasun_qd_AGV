@@ -220,10 +220,12 @@ void Pthread_Analy()
 				{
 				pool_add_worker (myprocess3, &workingnum[i]); //can
 				}
-			/*if (i==4)
+			/*
+			if (i==4)
 				{
 				pool_add_worker (myprocess4, &workingnum[i]); //location agv
-				}*/
+				}
+				*/
 		}
 		free (workingnum);//释放任务名的存储空间
         	/*等待所有任务完成*/

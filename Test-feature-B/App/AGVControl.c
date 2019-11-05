@@ -129,7 +129,7 @@ void DirectionDetermination()
 	static float direction_y = 0;
 
 
-	if (abs( Error_Coor_InAGV.x_coor)>30 ||abs(Error_Coor_InAGV.y_coor)>30){
+	if (abs( Error_Coor_InAGV.x_coor)>80 ||abs(Error_Coor_InAGV.y_coor)>80){
 	 direction_x = Destination_Coor_InWorld.x_coor - AGV_Current_Coor_InWorld.x_coor;
 	 direction_y= Destination_Coor_InWorld.y_coor - AGV_Current_Coor_InWorld.y_coor;
 	}
@@ -142,20 +142,20 @@ void DirectionDetermination()
 		{
 			Destination_Coor_InWorld.angle_coor = 0.0;
 
-			if (abs(Error_Coor_InAGV.angle_coor) <= 7.0)
+			if (abs(Error_Coor_InAGV.angle_coor) <= 10.0)
 			goStraight();
 
-			else if  (abs(Error_Coor_InAGV.angle_coor) >= 20 && abs(direction_x)>10) //5/10
+			else if  (abs(Error_Coor_InAGV.angle_coor) >10 && abs(direction_x)>10) //5/10
 			swerve();
 		}
 
 		else if (judge_axis == 2)  //Y方向
 		{
 			Destination_Coor_InWorld.angle_coor = 90.0;
-			if (abs(Error_Coor_InAGV.angle_coor) <=5.0)
+			if (abs(Error_Coor_InAGV.angle_coor) <=10.0)
 			goStraight();
 
-			else if  (abs(Error_Coor_InAGV.angle_coor) >= 20 && abs(direction_y)>10) //5/10
+			else if  (abs(Error_Coor_InAGV.angle_coor) >10 && abs(direction_y)>10) //5/10
 				swerve();
 		}
 
@@ -283,7 +283,7 @@ void AGV_Running()
 /*********************************************前进****************************************************/
             if ( Motionstyle == ACTION_MODE_GOAHEAD )
             {
-            	printf("Go_head\n");
+            	//printf("Go_head\n");
                 //UpdateAgvHeaderDirToNow();
             	Movement_Control();
             	Run_Movement_Class();
@@ -298,7 +298,7 @@ void AGV_Running()
                     	OutOfTrack = 0x00;
                     }
 
-                    if (twoDMissingCnt > 610)
+                    if (twoDMissingCnt > 710)
                     {
                         OutOfTrack = 0x01;
                         nEvent = 2;
@@ -310,7 +310,7 @@ void AGV_Running()
  /*********************************************后退****************************************************/
             if ( Motionstyle == ACTION_MODE_GOBACK)
             {
-            	printf("Go_back\n");
+            //	printf("Go_back\n");
 
                // UpdateAgvHeaderDirToNow();
             	Movement_Control();
@@ -327,7 +327,7 @@ void AGV_Running()
                       	OutOfTrack = 0x00;
                       }
 
-                    if (twoDMissingCnt > 610)    //检查导航脱轨事件
+                    if (twoDMissingCnt > 710)    //检查导航脱轨事件
                     {
                         OutOfTrack = 0x01;
                         nEvent = 2;
@@ -345,7 +345,7 @@ void AGV_Running()
                // Process_Movement_Command();
            //Movement_Control();
 
-              if (abs(Error_Coor_InAGV.angle_coor) <= 5 )
+              if (abs(Error_Coor_InAGV.angle_coor) <= 3 )
               {
             	  VL_1200 = 0.0;
             	  VR_1200 = 0.0;
@@ -368,7 +368,7 @@ void AGV_Running()
 
                 if (wControl > 0.4)
                 {
-               //     ++ twoDMissingCnt;
+               //    ++ twoDMissingCnt;
                     if (twoDMissingCnt > 100)
                     {
                         OutOfTrack = 0x01;
@@ -389,7 +389,7 @@ void AGV_Running()
                // Process_Movement_Command();
               //Movement_Control();
 
-                if (abs(Error_Coor_InAGV.angle_coor) <= 5.0)
+                if (abs(Error_Coor_InAGV.angle_coor) <= 3.0)
                 {
                     VL_1200 = 0.0;
                     VR_1200 = 0.0;
@@ -412,7 +412,7 @@ void AGV_Running()
 
                 if (wControl > 0.4)
                 {
-                    ++ twoDMissingCnt;
+              //      ++ twoDMissingCnt;
                     if (twoDMissingCnt > 100)
                     {
                         OutOfTrack = 0x01;

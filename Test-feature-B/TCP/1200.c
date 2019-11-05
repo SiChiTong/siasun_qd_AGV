@@ -13,6 +13,17 @@
 #include <errno.h>
 #include <agv.h>
 #include <Thread_Pool.h>
+//#include<select.h>
+
+#include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+#include <netdb.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+
+#define myerr(str) fprintf (stderr, "%s, %s, %d: %s\n", __FILE__, __func__, __LINE__, str)
+
 
 //float command_x, command_y, command_angle;
 float vx_ByEncoder, angular_velocity_angle_ByEncoder, angular_velocity_rad_ByEncoder;
@@ -76,12 +87,24 @@ void get_pthread()
 void *myprocess0(void *t)  //fuck_tcp
 {
 
+	fd_set rset;
+	 int ret;
+	 FD_ZERO (&rset);
+	 FD_SET (sock, &rset);
+
 
     buffer_init(&buf);
 
-
         PLC_send(buffer);     //套接字发送(放主函数会有接收延迟)
         char tmp[26];
+
+        ret = select(sock+1, &rset, NULL, NULL, NULL);
+           if (ret == 0)
+           {
+            myerr("select time out");
+            return;
+           }
+
         int len = read(sock, tmp, sizeof(tmp));    //套接字接收
         printf("1200 REV LEN=%d\n", len);
         if (len <= 0)
@@ -94,13 +117,14 @@ void *myprocess0(void *t)  //fuck_tcp
             printf("error, too large packet\n");
             exit(0);
         }
+
         int n = 0;
-     //   while (1)
-   //     {
+       while (1)
+        {
             char *msg = parse_packet(&buf);
             if (!msg)
             {
-              //  break;
+                break;
             }
             n ++;
             printf("< %s\n", msg);
@@ -109,8 +133,8 @@ void *myprocess0(void *t)  //fuck_tcp
                 printf(" [Mergerd Packed]\n");
             }
             free(msg);
-     //   }
-
+        }
+      //usleep(30);
     //return NULL;
 
 }
@@ -126,8 +150,6 @@ int PLC_send(char buf[])
         exit(1);
     }
     //printf("OK: Sent %d bytes sucessful, please enter again.\n", num);
-
-
 
 }
 
@@ -186,7 +208,7 @@ void get_PLC_Data()
 	command_angle = Command_Angle.fdata;
 	//get_PLC_Data.command_coor.angle = Command_Angle.fdata;
 
-	printf("C_X = %d, C_Y = %d, C_A = %d\n", command_x, command_y, command_angle);
+	//printf("C_X = %d, C_Y = %d, C_A = %d\n", command_x, command_y, command_angle);
 	//printf("Add_line = %d, Add_rotate = %d\n", Add_Command_Line, Add_Command_Rotate);
 	//printf("vx_ByEncoder = %f, angular_velocity_angle_ByEncoder = %f, angular_velocity_rad_byEncoder = %f\n", vx_ByEncoder, angular_velocity_angle_ByEncoder, angular_velocity_rad_ByEncoder);
     //return get_PLC_Data;

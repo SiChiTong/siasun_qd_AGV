@@ -30,6 +30,7 @@
 #include "AGV/agv.h"
 #include "motion_ctrl.h"
 #include <Thread_Pool.h>
+#include <sys/time.h>
 
 
 
@@ -58,70 +59,77 @@ Coordinate_Class_t Destination_Coor_InWorld;     //目标位置
 
 
 int Add_Command_Line, Add_Command_Rotate;
+int odom_flag;
 
-
-
-
+//***临时printf****//
+extern Velocity_Class_t Virtual_AGV_Current_Velocity_InAGV;
+extern float angle_error;
+extern Coordinate_Class_t Error_Coor_InAGV;                      //偏差坐标
+int i =0;
+extern float acc_distance;    //加速段距离(mm)
+extern float const_distance ;  //匀速段距离(mm)
+extern float dec_distance;    //减速段距离(mm)
+extern float slowly_distance ; //慢速段距离(mm)
 
 //由触摸屏得到目标坐标
 void Gcode_G0()
 {
 
-	/*
+
 	static int x;
 	static int y;
 
 	static int flage =0;
 	if(flage != 1){
 		flage =1;
-		stop_flage =300;
+		stop_flage =800;
 	}
 
 /*
-	 if(abs(AGV_Current_Coor_InWorld.y_coor-900)<7 && abs(AGV_Current_Coor_InWorld.x_coor-700)<7 && stop_flage>100){
+	 if(abs(AGV_Current_Coor_InWorld.y_coor-900)<7 && abs(AGV_Current_Coor_InWorld.x_coor-700)<7 && stop_flage>500){
 	   x = 700;//700/0
 	   y = 2000;//3300/500
 	   stop_flage=0;
 	}
 
-	else if(abs(AGV_Current_Coor_InWorld.y_coor-2000)<7 && abs(AGV_Current_Coor_InWorld.x_coor-700)<7 &&  stop_flage>100 ){
+	else if(abs(AGV_Current_Coor_InWorld.y_coor-2000)<7 && abs(AGV_Current_Coor_InWorld.x_coor-700)<7 &&  stop_flage>500 ){
 		x = 0;
 		y = 2000;
 		stop_flage=0;
 	}
 
-	else if(abs(AGV_Current_Coor_InWorld.x_coor) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 2000) < 7&&  stop_flage>100 ){
+	else if(abs(AGV_Current_Coor_InWorld.x_coor) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 2000) < 7&&  stop_flage>500 ){
 		x = 0;
 		y = 900;
 		stop_flage=0;
 	}
-	else if(abs(AGV_Current_Coor_InWorld.x_coor ) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 900) <7 &&  stop_flage>100 ){
+	else if(abs(AGV_Current_Coor_InWorld.x_coor ) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 900) <7 &&  stop_flage>500 ){
 		x = 700;
 		y = 900;
 		stop_flage=0;
 	}
-
-		 if(abs(AGV_Current_Coor_InWorld.x_coor) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 3300) < 7&&  stop_flage>100 ){
+*/
+		 if(abs(AGV_Current_Coor_InWorld.x_coor) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 3300) < 7&&  stop_flage>400 ){
 		x = 0;
 		y = 500;
 		stop_flage=0;
 	}
-	else if(abs(AGV_Current_Coor_InWorld.x_coor ) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 500) <7 &&  stop_flage>100 ){
+	else if(abs(AGV_Current_Coor_InWorld.x_coor ) < 7 && abs(AGV_Current_Coor_InWorld.y_coor - 500) <7 &&  stop_flage>400 ){
 		x = 0;
 		y = 3300;
 		stop_flage=0;
 	}
 
-		 */
 
 
-	Destination_Coor_InWorld.x_coor = command_x * 1.0;
-	//Destination_Coor_InWorld.x_coor = x;
-	Destination_Coor_InWorld.y_coor = command_y * 1.0;
-	//Destination_Coor_InWorld.y_coor = y;
+
+	//Destination_Coor_InWorld.x_coor = command_x * 1.0;
+	Destination_Coor_InWorld.x_coor = x;
+    //Destination_Coor_InWorld.y_coor = command_y * 1.0;
+	Destination_Coor_InWorld.y_coor = y;
    // Destination_Coor.angle_coor = Destination_Coor_InWorld.angle_coor; //屏幕获取目标角度
-    printf("Destination： %f, %f,  %f\n", Destination_Coor_InWorld.x_coor, Destination_Coor_InWorld.y_coor, Destination_Coor_InWorld.angle_coor);//目标点
-    //printf("C_X = %d, C_Y = %d, C_A = %d\n", command_x, command_y, command_angle);
+    //printf("Destination： %f, %f,  %f\n", Destination_Coor_InWorld.x_coor, Destination_Coor_InWorld.y_coor, Destination_Coor_InWorld.angle_coor);//目标点
+   // printf("C_X = %d, C_Y = %d, C_A = %d\n", command_x, command_y, command_angle);
 
     // printf("目标点位：%d,%d\n",x,y);
     //Coordinate_Class_t Destination_Coor_temp;
@@ -135,6 +143,34 @@ void Gcode_G0()
 */
 }
 
+/***************定时器**********************/
+void test_func()
+{
+     odom_flag = 1;
+}
+
+void init_sigaction()
+{
+    struct sigaction act;
+
+    act.sa_handler = test_func; //设置处理信号的函数
+    act.sa_flags  = 0;
+
+    sigemptyset(&act.sa_mask);
+    sigaction(SIGPROF, &act, NULL);//时间到发送SIGROF信号
+}
+
+void init_time()
+{
+    struct itimerval val;
+
+    val.it_value.tv_sec = 0; //10u秒后启用定时器
+    val.it_value.tv_usec = 2;
+
+    val.it_interval = val.it_value; //定时器间隔为10us
+
+    setitimer(ITIMER_PROF, &val, NULL);
+}
 
 
 //系统初始化
@@ -147,7 +183,8 @@ void init_System()
 
     PGV_init();          //相机初始化
     get_PLC_init();      //1200数据接收初始化
-
+    init_sigaction();//定时器
+    init_time();			//定时器
     pool_init (4);  //线程池初始化，其中共4个活动线程
    // get_pthread();  //开TCP线程
     //get_PID();      //开PID线程
@@ -179,10 +216,9 @@ int main ()
     init_System();  //初始化
 
 
-
 	while(1)
 	{
-	    printf("VL_1200=%d, VR_1200=%d\n", Vl.fdata, Vr.fdata);
+	   // printf("VL_1200=%d, VR_1200=%d\n", Vl.fdata, Vr.fdata);
         Vl.fdata = (int)(VL_1200 * 1000);
         Vr.fdata = (int)(VR_1200 * 1000);
         buffer[0] = Vl.ldata[0];
@@ -202,10 +238,54 @@ int main ()
         //Prase_Sensor_Data();    //传感器处理
         Location_AGV();         //AGV定位
         DirectionDetermination();  //判断车体的运行方向
-		AGV_RUN();
- printf("stop=%d\n",stop);
+        AGV_RUN();
 
+        i++;
+        if (i>20){
+        	i=0;
+
+            printf("data_ok=%d\n",data_Ok);
+            printf("odom_flag=%d\n",odom_flag);
+		if(data_Ok==1)
+		printf("CURRENT_X =%f,CURRENT_Y=%f,CURRENT_A=%f\n",AGV_Current_Coor_InWorld.x_coor,AGV_Current_Coor_InWorld.y_coor,AGV_Current_Coor_InWorld.angle_coor);
+		if(data_Ok==0)
+			printf("currentr_x =%f,current_y=%f,current_a=%f\n",AGV_Current_Coor_InWorld.x_coor,AGV_Current_Coor_InWorld.y_coor,AGV_Current_Coor_InWorld.angle_coor);
+
+		printf("stop=%d\n",stop);
+		printf("Destination： %f, %f,  %f\n", Destination_Coor_InWorld.x_coor, Destination_Coor_InWorld.y_coor, Destination_Coor_InWorld.angle_coor);//目标点
+
+		printf("State=%d\n",State);
+		printf("current_distance=%f\n",current_distance);
+		printf("acc_distance=%f,const_distance=%f,dec_distance=%f\n,slowly_distance=%f\n",acc_distance,const_distance,dec_distance,slowly_distance);
+
+		if( ((abs(angle_error) < 0.45) && (abs(Error_Coor_InAGV.x_coor) < 2 ||abs(Error_Coor_InAGV.y_coor) < 2)) ){
+		 printf("安全区间\n");
+		    }
+		else
+		{
+			if (Distance_Symbols == 1){
+		        if (Destination_Coor_InWorld.angle_coor == 0.0){
+		        	if( abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.y_coor) > 5){//0.5 3 3
+		        		printf("危险区间\n");
+		        	} }
+		        else if (Destination_Coor_InWorld.angle_coor == 90.0){
+		        	if(abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.x_coor) > 5){
+		        		printf("危险区间 \n");
+		        	} }
+		     }
+
+			if (Distance_Symbols == -1) {
+		       if (Destination_Coor_InWorld.angle_coor == 0.0){
+		    	   if( abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.y_coor) > 5){
+		    		   printf("危险区间 \n");
+		    	   } }
+		       else if (Destination_Coor_InWorld.angle_coor == 90.0){
+		    	   if(abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.x_coor) >5){
+		    		   printf("危险区间 \n");
+		    	   } }
+		     }
+		}
+       }
 
 	}
-
 }

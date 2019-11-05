@@ -53,13 +53,14 @@ int Movement_Init()
 	//Destination_Coor_InOrigin.angle_coor = Destination_Coor_InWorld.angle_coor - Virtual_AGV_Current_Coor_InWorld.angle_coor;
 
 	//printf("Destination_Coor_InOrigin.X=%f,Y=%f,A=%f\n",Destination_Coor_InOrigin.x_coor,Destination_Coor_InOrigin.y_coor,Destination_Coor_InOrigin.angle_coor);
-	if (abs(Destination_Coor_InOrigin.x_coor) > 90 || abs(Destination_Coor_InOrigin.y_coor) > 90 )
+	if (abs(Destination_Coor_InWorld.x_coor-AGV_Current_Coor_InWorld.x_coor) > 90 || abs(Destination_Coor_InWorld.y_coor-AGV_Current_Coor_InWorld.y_coor) > 90 )
     {
        // float input_distance_abs = Cal_Destination_Displacement(Destination_Coor_InOrigin);   //计算待插补的距离
         float input_distance_abs = sqrtf(Destination_Coor_InOrigin.x_coor*Destination_Coor_InOrigin.x_coor+Destination_Coor_InOrigin.y_coor*Destination_Coor_InOrigin.y_coor);
-        printf("input_distance_abs=%f",input_distance_abs);
+       // printf("input_distance_abs=%f\n",input_distance_abs);
        // Interpolation_Parameter = Update_Interpolation_Parameter(Input_Para);    //更新插补参数
         temp_result = Interpolation_Init(input_distance_abs, Interpolation_Parameter);
+      //  printf("temp_result=%d\n",temp_result);
     }
 
 	else
@@ -196,7 +197,7 @@ int Movement_Cal_Velocity(Coordinate_Class_t Current_Coor_InWorld, struct Interp
 	Target_Coor_InWorld.angle_coor = Origin_Coor_InWorld.angle_coor + Target_Coor_InOrigin.angle_coor;
 	Target_Coor_InWorld.angle_rad = Origin_Coor_InWorld.angle_rad + Target_Coor_InOrigin.angle_rad;
 */
-		printf("Inter_result=%d\n",Inter_result);
+		//printf("Inter_result=%d\n",Inter_result);
 	return Inter_result;
 
 }

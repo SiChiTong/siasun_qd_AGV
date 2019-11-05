@@ -37,7 +37,7 @@ Coordinate_Class_t AGV_Target_Coor_InWorld;               //AGV在世界坐标�
 Coordinate_Class_t Error_Coor_InAGV;                      //偏差坐标
 
 extern float angle;
-
+extern int odom_flag;
 //extern Velocity_Class_t AGV_Target_Velocity_InAGV;
 extern Velocity_Class_t Virtual_AGV_Current_Velocity_InAGV;
 //extern int data_ok;
@@ -53,12 +53,12 @@ float PID_result = 0.0;
 void paramter_define()
 {
 
-    wheelParamter.line_slowest_time = 0.20; //0.1
+    wheelParamter.line_slowest_time = 0.35; //0.1
     wheelParamter.motor_max_rotationl_velocity_soft = 3000;
     wheelParamter.motor_min_rotationl_velocity_soft = 150;
     wheelParamter.WHEEL_DIAMETER = 150.0;
     wheelParamter.REDUCATION_RATIO = 15.0;
-    wheelParamter.wheel_acceleration_time = 0.5454;//慢速2m/0.3636，快速3m/0.5454
+    wheelParamter.wheel_acceleration_time = 0.3636;//慢速2m/0.3636，快速3m/0.5454
 
     wheelParamter.wheel_max_line_velocity = wheelParamter.motor_max_rotationl_velocity_soft * wheelParamter.WHEEL_DIAMETER * M_PI / 60.0 / wheelParamter.REDUCATION_RATIO;
     wheelParamter.wheel_min_line_velocity = wheelParamter.motor_min_rotationl_velocity_soft * wheelParamter.WHEEL_DIAMETER * M_PI / 60.0 / wheelParamter.REDUCATION_RATIO;
@@ -72,11 +72,10 @@ void paramter_define()
 
 void *myprocess2() //Prase_Sensor_Data.485pgv
 {
-	data_Ok = 0;
-	printf("PGVing\n");
     PGV_Send_data();           //串口发送
     usleep(60);
     PGV_Rev();            //串口接受
+    data_Ok = 0;
 
     if (len_r ==21){    //接收数据正常
     	  if (PGV_AnalyzeData() == 1)
@@ -134,7 +133,8 @@ void Location_AGV() //Location_AGV
 	//AGV_Current_Velocity_InAGV.velocity_x = AGV_Current_Velocity_By_Encoder.velocity_x;  //编码器返回速度有误
 	//AGV_Current_Velocity_InAGV.velocity_y = 0;
 
-    printf("data_ok=%d\n",data_Ok);
+   // printf("data_ok=%d\n",data_Ok);
+   // printf("odom_flag=%d\n",odom_flag);
 	if (data_Ok == 1)     //相机读取到数据
 	{
         //data_Ok = 0;
@@ -147,15 +147,15 @@ void Location_AGV() //Location_AGV
 
 		AGV_Current_Coor_InWorld = PGV150_coor;   //更新全局坐标
     //    printf("PGV150_coor.x = %f, PGV150_coor.y = %f, PGV150_coor.angle = %f\n", PGV150_coor.x_coor, PGV150_coor.y_coor, PGV150_coor.angle_coor);
-		printf("CURRENT_X =%f,CURRENT_Y=%f,CURRENT_A=%f\n",AGV_Current_Coor_InWorld.x_coor,AGV_Current_Coor_InWorld.y_coor,AGV_Current_Coor_InWorld.angle_coor);
+	//	printf("CURRENT_X =%f,CURRENT_Y=%f,CURRENT_A=%f\n",AGV_Current_Coor_InWorld.x_coor,AGV_Current_Coor_InWorld.y_coor,AGV_Current_Coor_InWorld.angle_coor);
 
 	}
-	else
+	else if (odom_flag==1 && data_Ok==0 )
 	{
-		//AGV_Current_Coor_InWorld = PGV150_coor;   //更新全局坐标
+		odom_flag = 0;
+		//AGV_Current_Coor_InWorld=Odom_Coor;
 		AGV_Current_Coor_InWorld = Odom_Calib(Virtual_AGV_Current_Velocity_InAGV.velocity_x, AGV_Current_Velocity_InAGV.angular_velocity_angle);    //无二维码部分进行里程推算
-		//printf("current_Coor_X = %f, current_Coor_Y = %f, current_Coor_Angle = %f\n", AGV_Current_Coor_InWorld.x_coor, AGV_Current_Coor_InWorld.y_coor, AGV_Current_Coor_InWorld.angle_coor);
-		printf("currentr_x =%f,current_y=%f,current_a=%f\n",AGV_Current_Coor_InWorld.x_coor,AGV_Current_Coor_InWorld.y_coor,AGV_Current_Coor_InWorld.angle_coor);
+	//	printf("currentr_x =%f,current_y=%f,current_a=%f\n",AGV_Current_Coor_InWorld.x_coor,AGV_Current_Coor_InWorld.y_coor,AGV_Current_Coor_InWorld.angle_coor);
 
 	}
 	//return NULL;
@@ -172,9 +172,9 @@ void *myprocess1(void *t) //PID_fun
 
        // printf("angle_coor =%f\n",Destination_Coor_InWorld.angle_coor);//千万别打印
 
-if( (abs(angle_error) < 0.3) && (abs(Error_Coor_InAGV.x_coor) < 2 ||abs(Error_Coor_InAGV.y_coor) < 2)){
+if( (abs(angle_error) < 0.45 && (abs(Error_Coor_InAGV.x_coor) < 2 ||abs(Error_Coor_InAGV.y_coor) < 2))||( abs(Virtual_AGV_Current_Velocity_InAGV.velocity_x)<75 ) ){
 	 PID_error = 0;
-	 printf("安全区间\n");
+	 //printf("安全区间\n");
     }
 
 else
@@ -184,21 +184,21 @@ else
 	if ( Motionstyle == ACTION_MODE_GOAHEAD )
 		{
         if (Destination_Coor_InWorld.angle_coor == 0.0){
-        	if( abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.y_coor) > 6){//0.5 3 3
+        	if( abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.y_coor) >5 ){//0.5 3 3
         		 PID_error = Error_Coor_InAGV.y_coor*T;
-        		 printf("危险区间\n");
+        		// printf("危险区间\n");
         	}
         	else
-        		PID_error = Error_Coor_InAGV.y_coor * 0.4 + angle_error * 0.6;
+        		PID_error = Error_Coor_InAGV.y_coor * 0.45 + angle_error * 0.55;
         }
 
         else if (Destination_Coor_InWorld.angle_coor == 90.0){
-        	if(abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.x_coor) > 6){
+        	if(abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.x_coor) > 5 ){
         		 PID_error = -Error_Coor_InAGV.x_coor*T;
-        		 printf("危险区间 \n");
+        		// printf("危险区间 \n");
         	}
         	else
-        		PID_error = -Error_Coor_InAGV.x_coor * 0.4 + angle_error * 0.6;
+        		PID_error = -Error_Coor_InAGV.x_coor * 0.45 + angle_error * 0.55;
         }
      }
 
@@ -206,27 +206,27 @@ else
  if ( Motionstyle == ACTION_MODE_GOBACK)
  {
        if (Destination_Coor_InWorld.angle_coor == 0.0){
-    	   if( abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.y_coor) > 6){
+    	   if( abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.y_coor) > 5 ){
     		   PID_error = -Error_Coor_InAGV.y_coor*T;
-    		   printf("危险区间 \n");
+    		   //printf("危险区间 \n");
     	   }
     	   else
-    		   PID_error = -Error_Coor_InAGV.y_coor * 0.4 + angle_error * 0.6;
+    		   PID_error = -Error_Coor_InAGV.y_coor * 0.45 + angle_error * 0.55;
        }
 
        else if (Destination_Coor_InWorld.angle_coor == 90.0){
-    	   if(abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.x_coor) > 6){
+    	   if(abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.x_coor) > 5 ){
     		   PID_error = Error_Coor_InAGV.x_coor*T;
-    		   printf("危险区间 \n");
+    		 //  printf("危险区间 \n");
     	   }
     	   else
-    		   PID_error = Error_Coor_InAGV.x_coor * 0.4 + angle_error * 0.6;
+    		   PID_error = Error_Coor_InAGV.x_coor * 0.45 + angle_error * 0.55;
        }
     }
 }
- 	 if (abs(Virtual_AGV_Current_Velocity_InAGV.velocity_x) > 1200)
+ 	 if (wheelParamter.wheel_max_line_velocity> 1200)
         PID_result = HI * (PID_error - error_next) + HP * PID_error + HD * (PID_error - 2 * error_next + error_last);
- 	 else if (abs(Virtual_AGV_Current_Velocity_InAGV.velocity_x) <= 1100)
+ 	 else
  		PID_result = KI * (PID_error - error_next) + KP * PID_error + KD * (PID_error - 2 * error_next + error_last);
 
         if (PID_result < -60)
@@ -239,7 +239,7 @@ else
         }
         error_last = error_next;
         error_next = PID_error;
-        //usleep(20);
+       // usleep(10);
        // printf("PID_result = %f\n", PID_result);
       //  return NULL;
 }

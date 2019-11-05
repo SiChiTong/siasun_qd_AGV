@@ -375,7 +375,7 @@ int PGV_AnalyzeData()
 	x_deviation     = x_temp / 10.0;
 	y_deviation     = y_temp / 10.0;
 	angle_deviation = angle_temp;
-	printf("x_deviation=%f, y_deviation=%f, angle_deviation=%f\n", x_deviation, y_deviation, angle_deviation);
+	//printf("x_deviation=%f, y_deviation=%f, angle_deviation=%f\n", x_deviation, y_deviation, angle_deviation);
 
 
 	memset(cmd_buff, 0, sizeof(cmd_buff));   //一帧解析完成清掉

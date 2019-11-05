@@ -2,20 +2,22 @@
 // Created by maxiao on 8/26/19.
 //
 
-#include "stdio.h"
+#include <stdio.h>
 #include "stdlib.h"
 #include <stdint-gcc.h>
 #include <common.h>
 #include <main.h>
 #include "motion_ctrl.h"
 #include "Movement.h"
+#include<agv.h>
+#include <PGV150/PGV150.h>
 
 uint16_t ethCommBreakFlag = 0x00;
 uint16_t Motionstyle      = MOTIONSTATE_ONSTOPING;
 
 extern int virtual_agv_coor_init_flag;
 extern struct Coordinate_Class Virtual_AGV_Current_Coor_InWorld;
-struct Interpolation_Parameter_t Interpolation_Parameter_m;
+//struct Interpolation_Parameter_t Interpolation_Parameter_m;
 extern Coordinate_Class_t Destination_Coor_InWorld;     //目标位置
 Velocity_Class_t Virtual_AGV_Current_Velocity_InAGV;
 extern Velocity_Class_t Target_Velocity_InAGV;     //目标速度
@@ -43,7 +45,7 @@ extern float const_distance;  //匀速段距离(mm)
 extern float dec_distance;    //减速段距离(mm)
 extern float slowly_distance; //慢速段距离(mm)
 
-int stop;
+int stop = 0;
 int stop_flage = 0;
 //enum Interpolation_State_Enum State;
 
@@ -52,9 +54,9 @@ void Run_Movement_Class( )
 	static enum Interpolation_State_Enum Interpolation_State;
 	//struct Coordinate_Class Coor = virtual_agv_coor_init_flag ? Virtual_AGV_Current_Coor_InWorld : AGV_Current_Coor_InWorld;
 
-	 if (Add_Command_Line == 1)
+if (Add_Command_Line == 1)
  {
-     printf("插补状态=%d\n",State);
+     //printf("插补状态=%d\n",State);
     switch (State)
     {
 
@@ -93,18 +95,28 @@ void Run_Movement_Class( )
     	break;
 
     case IS_Interpolated:  //插补结束
-    	current_distance = 0.0;
-    	acc_distance = const_distance = dec_distance = slowly_distance = 0.0;
-    	if(stop == 1){
-    		State = No_Interpolation;
-    		Virtual_AGV_Current_Velocity_InAGV.velocity_x = 0;
+    	//printf("插补结束\n");
+    	if(stop == 0){
+    		printf("插补结束\n");
+    		State = IS_Interpolated;
+    		if (data_Ok==1)
+    		Virtual_AGV_Current_Velocity_InAGV.velocity_x = 56.0* Distance_Symbols;
+    		else
+    			Virtual_AGV_Current_Velocity_InAGV.velocity_x = 70.0* Distance_Symbols;
     	}
-    	else if(stop == 0)
-    		Virtual_AGV_Current_Velocity_InAGV = Target_Velocity_InAGV;
+
+    	else if(stop == 1){
+    		current_distance = 0.0;
+    		acc_distance = const_distance = dec_distance = slowly_distance = 0.0;
+    		virtual_agv_coor_init_flag = 0;
+    		//Virtual_AGV_Current_Velocity_InAGV.velocity_x = 0.0;
+    		State = No_Interpolation;
+    	}
+
     	break;
 
-    default:
-   	break;
+    //default:
+   	//break;
 
     }
  }
@@ -137,43 +149,9 @@ void Movement_Control()
 	float V_err;
     float vx;
 
-
-
-/*
-    if ((Add_Command_Line == 1) || (Add_Command_Rotate == 1))
-    {
-        AGV_Target_Coor_InWorld = Destination_Coor_InWorld;    //获取期望坐标
-        AGV_Target_Velocity_InAGV = Virtual_AGV_Current_Velocity_InAGV;    //获取期望速
-    }
-    else
-    {
-        //AGV_Target_Coor_InWorld = AGV_Current_Coor_InWorld;    //期望坐标是当前坐标
-        AGV_Target_Velocity_InAGV.velocity_x = 0.0;
-        AGV_Target_Velocity_InAGV.velocity_y = 0.0;
-        AGV_Target_Velocity_InAGV.angular_velocity_rad = 0.0;
-        AGV_Target_Velocity_InAGV.angular_velocity_angle = 0.0;
-        AGV_Target_Velocity_InAGV.angular_velocity_mm = 0.0;
-    }
-
-    Error_Coor_InAGV.x_coor = Destination_Coor_InWorld.x_coor - AGV_Current_Coor_InWorld.x_coor;
-    Error_Coor_InAGV.y_coor = Destination_Coor_InWorld.y_coor - AGV_Current_Coor_InWorld.y_coor;
-    if (AGV_Current_Coor_InWorld.angle_coor >= 0.0)
-    {
-        Error_Coor_InAGV.angle_coor = Destination_Coor_InWorld.angle_coor - AGV_Current_Coor_InWorld.angle_coor;
-    }
-    else if (AGV_Current_Coor_InWorld.angle_coor < 0.0 && AGV_Current_Coor_InWorld.angle_coor >= -100.0)
-    {
-        Error_Coor_InAGV.angle_coor = Destination_Coor_InWorld.angle_coor - AGV_Current_Coor_InWorld.angle_coor;
-    }
-    else if (AGV_Current_Coor_InWorld.angle_coor < -100.0 && AGV_Current_Coor_InWorld.angle_coor >= -180)
-    {
-        Error_Coor_InAGV.angle_coor = Destination_Coor_InWorld.angle_coor - abs(AGV_Current_Coor_InWorld.angle_coor);
-    }
-    Error_Coor_InAGV.angle_coor = abs(Error_Coor_InAGV.angle_coor);
-*/
     vx = Virtual_AGV_Current_Velocity_InAGV.velocity_x;
 
-    printf("vx = %f\n", vx);
+  //  printf("vx = %f\n", vx);
 
     //如果直行
     if (Add_Command_Line == 1)
@@ -182,68 +160,64 @@ void Movement_Control()
     	switch(judge_axis)
     	{
     		case 1: //X方向
-    			if (abs(Error_Coor_InAGV.x_coor) <= 2.0) {
-    				printf("**stop**\n");
+    			if ((abs(PGV150_coor.x_coor-Destination_Coor_InWorld.x_coor) < 1.5) )
+    			{
+    				printf("**stop_X**\n");
+    				Virtual_AGV_Current_Velocity_InAGV.velocity_x = 0.0;
     			     VL_1200 = 0.0;
     			     VR_1200 = 0.0;
     			     stop = 1;
-    			     virtual_agv_coor_init_flag = 0;
     			     ++stop_flage;
-    			   //  printf("v = %f\n", target_velocity);
     			}
     	    	else
     	    	{
     	    		stop = 0;
+    	    		/*
     	        	if (abs(vx - PID_result) - abs(vx + PID_result)>=1 ) //0/1/2
     	        		{
     	        			//printf("偏外\n");
-
+/*
     	        		if (abs(vx) < 900)
     	        			V_err =(abs(vx - PID_result) - abs(vx + PID_result))*Z;
     	        		else
-    	        			V_err =(abs(vx - PID_result) - abs(vx + PID_result))*(5.15*abs(vx)*0.001-4.725)*2;
+
+    	        			//V_err =(abs(vx - PID_result) - abs(vx + PID_result))*(5.15*abs(vx)*0.001-4.725)*2;
+    	        			V_err =(abs(vx - PID_result) - abs(vx + PID_result))*Z;
 
     	        			VL_1200 = vx + PID_result;
     	        			  VR_1200 = vx - PID_result;
     	        			//VR_1200 = vx - PID_result+V_err*Distance_Symbols;
+    	        		}*/
 
-    	        		}
-    	        	else
-    	        	     {
     	        			//printf("偏里\n");
     	        	        VL_1200 = vx + PID_result;
     	        	        VR_1200 = vx - PID_result;
 
-    	        	        	}
     	        }
     			break;
 
     		case 2: //Y方向
-    			if (abs(Error_Coor_InAGV.y_coor) <= 2.0) {
-    				printf("**stop**\n");
+    			if ((abs(PGV150_coor.y_coor-Destination_Coor_InWorld.y_coor) < 1.5) )
+    			{
+    				printf("**stop_Y**\n");
+    				Virtual_AGV_Current_Velocity_InAGV.velocity_x = 0.0;
     				VL_1200 = 0.0;
     				VR_1200 = 0.0;
          		     stop = 1;
-         		    virtual_agv_coor_init_flag = 0;
          		   ++stop_flage;
-         		//  printf("v = %f\n", target_velocity);
     			}
     	    	else
     	    	{
     	    		stop =0;
-    	        	if (abs(vx - PID_result) - abs(vx + PID_result)>=1 ) //0/1/2
+    	        /*	if (abs(vx - PID_result) - abs(vx + PID_result)>=1 ) //0/1/2
     	        		{
     	        			//printf("偏外\n");
-
-    	        		if (abs(vx) < 900)
-    	        			V_err =(abs(vx - PID_result) - abs(vx + PID_result))*Z;
-    	        		else
     	        			V_err =(abs(vx - PID_result) - abs(vx + PID_result))*(5.15*abs(vx)*0.001-4.725)*2;
 
     	        	    	//printf ("速度插补= %f\n",V_err);
 
     	        			VL_1200 = vx + PID_result;
-    	        			  VR_1200 = vx - PID_result;
+    	        			  VR_1200 = vx - PID_result+V_err*Distance_Symbols;
     	        			//VR_1200 = vx - PID_result+V_err*Distance_Symbols;
 
     	        		}
@@ -252,8 +226,10 @@ void Movement_Control()
     	        		//	printf("偏里\n");
     	        	        VL_1200 = vx + PID_result;
     	        	        VR_1200 = vx - PID_result;
+    	        	        	}*/
 
-    	        	        	}
+    	    		  VL_1200 = vx + PID_result;
+    	    		   VR_1200 = vx - PID_result;
     	        }
     			break;
     	}

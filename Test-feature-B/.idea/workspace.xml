@@ -54,8 +54,8 @@
         <option value="$PROJECT_DIR$/main.c" />
         <option value="$PROJECT_DIR$/App/AGVControl.c" />
         <option value="$PROJECT_DIR$/App/motion_ctrl.c" />
-        <option value="$PROJECT_DIR$/AGV/agv.c" />
         <option value="$PROJECT_DIR$/App/Interpolation.c" />
+        <option value="$PROJECT_DIR$/AGV/agv.c" />
       </list>
     </option>
   </component>
@@ -72,7 +72,17 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="IMUtest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Test-feature-B" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -118,16 +128,18 @@
       <workItem from="1572263679179" duration="68000" />
       <workItem from="1572320238741" duration="1066000" />
       <workItem from="1572330264416" duration="620000" />
+      <workItem from="1572581929831" duration="383000" />
+      <workItem from="1572939173013" duration="698000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7922000" />
+    <option name="totallyTimeSpent" value="9003000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="55" y="-4" width="1865" height="1084" extended-state="6" />
+    <frame x="54" y="-11" width="1867" height="1092" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2694215" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1922865" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
