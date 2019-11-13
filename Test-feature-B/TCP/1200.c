@@ -84,7 +84,7 @@ void get_pthread()
 }
 */
 
-void *myprocess0(void *t)  //fuck_tcp
+void myprocess0()  //fuck_tcp
 {
 
 	fd_set rset;
@@ -107,6 +107,8 @@ void *myprocess0(void *t)  //fuck_tcp
 
         int len = read(sock, tmp, sizeof(tmp));    //套接字接收
         printf("1200 REV LEN=%d\n", len);
+        if (len == -1 )
+        	 len = read(sock, tmp, sizeof(tmp));
         if (len <= 0)
         {
             printf("received %d, exit.\n", len);
@@ -135,7 +137,7 @@ void *myprocess0(void *t)  //fuck_tcp
             free(msg);
         }
       //usleep(30);
-    //return NULL;
+ //   return NULL;
 
 }
 

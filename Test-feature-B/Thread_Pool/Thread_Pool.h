@@ -16,10 +16,11 @@ void * thread_routine (void *arg);
 void * myprocess (void *arg);
 int Thread_Pool (int argc, char **argv);
 void Pthread_Analy();
+/*
 void * myprocess0 (void *arg);
 void * myprocess1 (void *arg);
 void * myprocess2 (void *arg);
 void * myprocess3 (void *arg);
-void * myprocess4 (void *arg);
+*/
 
 #endif /* THREAD_POOL1_H_ */

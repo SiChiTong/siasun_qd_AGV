@@ -29,7 +29,7 @@ Coordinate_Class_t get_PLC_Command_coor(char *revbuf);    //接收目标地址
 void get_PLC_Data();  //接收PLC数据(除以1000)
 void get_pthread();
 //void *fuck_tcp(void *t);
-void *myprocess0(void *t);
+void myprocess0();
 int PLC_send(char buf[]);
 
 #endif //IMUTEST_1200_H

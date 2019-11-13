@@ -196,7 +196,7 @@ void * thread_routine (void *arg)
     /*这一句应该是不可达的*/
     pthread_exit (NULL);
 }
-
+/*
 void Pthread_Analy()
 {
 	int *workingnum = (int *) malloc (sizeof (int) * 4);//动态分布6个存储空间,用于存放任务名
@@ -216,21 +216,17 @@ void Pthread_Analy()
 				{
 				pool_add_worker (myprocess2, &workingnum[i]);//485
 				}
+
 			if (i==3)
 				{
 				pool_add_worker (myprocess3, &workingnum[i]); //can
 				}
-			/*
-			if (i==4)
-				{
-				pool_add_worker (myprocess4, &workingnum[i]); //location agv
-				}
-				*/
+
 		}
 		free (workingnum);//释放任务名的存储空间
         	/*等待所有任务完成*/
         	//sleep (5);
         	/*销毁线程池*/
         	//pool_destroy ();
-}
+//}
 
