@@ -44,7 +44,7 @@ extern int Add_Command_Rotate;
 extern float VL_1200;    //发送给PLC左轮速度
 extern float VR_1200;    //发送给PLC右轮速度
 int judge_axis=0;
-int run_flage = 600;
+int run_flage = 5000;
 
 /*************************直线判断********************************/
 void goStraight()
@@ -72,7 +72,7 @@ void goStraight()
 
 
 /****************************转向判断*********************************/
- swerve()
+ void swerve()
 {
 //	printf("angle_deviation=%f\n",angle_deviation);
       if (  Destination_Coor_InWorld.angle_coor == 0 )			//如果目标角度为0°
@@ -118,6 +118,13 @@ void track_resrt() //复位
 		   VL_1200 =  300.0*Distance_Symbols;
 		   VR_1200 =  300.0*Distance_Symbols;
 		   break;
+	 }
+
+	 case PRESSING_STOP_EVENT:   //急停事件解除地标丢失
+	 {
+		   VL_1200 =  300.0*Distance_Symbols;
+		   VR_1200 =  300.0*Distance_Symbols;
+		 break;
 	 }
 
 	 case OUT_OF_TRACK_EVENT:   //脱轨复位
@@ -171,10 +178,10 @@ void DirectionDetermination()
 		{
 			Destination_Coor_InWorld.angle_coor = 0.0;
 
-			if (abs(Error_Coor_InAGV.angle_coor) <= 10.0 && run_flage >10)
+			if (abs(Error_Coor_InAGV.angle_coor) <= 10.0 && run_flage >3000)
 			goStraight();
 
-			else if  (abs(Error_Coor_InAGV.angle_coor) >10 && abs(direction_x)>10) {
+			else if  (abs(Error_Coor_InAGV.angle_coor) >10 && abs(direction_x)>30) {
 			run_flage = 0;
 			swerve();
 			}
@@ -184,10 +191,10 @@ void DirectionDetermination()
 		{
 			Destination_Coor_InWorld.angle_coor = 90.0;
 
-			if (abs(Error_Coor_InAGV.angle_coor) <=10.0 && run_flage >10 )
+			if (abs(Error_Coor_InAGV.angle_coor) <=10.0 && run_flage >3000 )
 			goStraight();
 
-			else if  (abs(Error_Coor_InAGV.angle_coor) >10 && abs(direction_y)>10) {
+			else if  (abs(Error_Coor_InAGV.angle_coor) >10 && abs(direction_y)>30) {
 				run_flage = 0;
 				swerve();
 			}
@@ -199,31 +206,55 @@ void DirectionDetermination()
 
 void AGV_RUN()
 {
-	   if (0)  //避障停车标志位
+		if (abs(Virtual_AGV_Current_Velocity_InAGV.velocity_x) - abs(Target_Velocity_InAGV.velocity_x) >80)      //车速发生骤变
+		{
+			if (abs(Virtual_AGV_Current_Velocity_InAGV.velocity_x) - abs(Target_Velocity_InAGV.velocity_x) >0)  //减速状态
+				Target_Velocity_InAGV.velocity_x =  Virtual_AGV_Current_Velocity_InAGV.velocity_x - 10;
+			else                                // 加速状态
+				Target_Velocity_InAGV.velocity_x =  Virtual_AGV_Current_Velocity_InAGV.velocity_x + 10;
+		}
+
+		else  if (0)  //避障停车标志位
 	   {
 	    	nEvent = OBSTACLE_STOP_EVENT; //避障停车事件
 	    	nAgvWorkMode = AGV_MODE_SUSPENDED;   //进入挂起
 	    }
-	   else if(Add_Command_Rotate == 1 ) //避障减速标志位
+
+	   else if (0)  //紧急停车标志位
 	   {
-		   nEvent =  OBSTACLE_LOW_EVENT; //避障减速事件
+		   nEvent = PRESSING_STOP_EVENT;  //紧急停车事件
 		   nAgvWorkMode = AGV_MODE_SUSPENDED;   //进入挂起
 	   }
+	   else if(Add_Command_Rotate == 1 ) //避障减速标志位
+	   {
+		  // nEvent =  OBSTACLE_LOW_EVENT; //避障减速事件
+		   //nAgvWorkMode = AGV_MODE_SUSPENDED;   //进入挂起
+		   if (abs(Virtual_AGV_Current_Velocity_InAGV.velocity_x)>800.0){
+			   Target_Velocity_InAGV.velocity_x = 800.0*Distance_Symbols;   //限制最高速
+			   //nAgvWorkMode = AGV_MODE_RUNNING;
+		   }
+	   }
+
 	//printf("nAgvWorkMode=%d\n",nAgvWorkMode);
     switch (nAgvWorkMode)
     {
         case AGV_MODE_STANDBY:
             AGV_StandBy();
             break;
+
         case AGV_MODE_RUNNING:
+        	 if (Add_Command_Line == 1)  //启动按键
             AGV_Running();
             break;
+
         case AGV_MODE_SUSPENDED:
             AGV_Suspended();
             break;
+
         case AGV_MODE_OP:
             AGV_Op();
             break;
+
         default:
             break;
     }
@@ -250,17 +281,17 @@ void AGV_Op()
 void AGV_Suspended()
 {
     //ToDo: 关掉驱动器使能，速度清零
-    printf("nEvent=%d\n",nEvent);
+   // printf("nEvent=%d\n",nEvent);
     switch (nEvent)
     {
     case OBSTACLE_STOP_EVENT:    //如果触发避障停车
     {
-    	 if (Add_Command_Rotate == 1)  //急停标志位
+    	 if (0)  //避障停车标志位
     	 {
     		 VL_1200 = 0.0;
     		 VR_1200 = 0.0;
     	 }
-    	 else if (Add_Command_Rotate == 0)  //急停解除
+    	 else if (  0)  //急停解除
     	 {
              if (data_Ok ==1 ) {
              	nEvent = 0;
@@ -279,7 +310,7 @@ void AGV_Suspended()
         */
         break;
     }
-
+/*
     	case OBSTACLE_LOW_EVENT:    //避障减速
     	{
     		Virtual_AGV_Current_Velocity_InAGV.velocity_x = 280.0* Distance_Symbols; //减速
@@ -298,10 +329,10 @@ void AGV_Suspended()
     		}
     		break;
     	}
-
+*/
         case OUT_OF_TRACK_EVENT:      //如果脱轨，检查是否回归坐标点
         {
-        	printf("Derailment\n");
+        	//printf("Derailment\n");
         	//ToDo: 速度等参数清零
         	VL_1200 = 0.0;
         	VR_1200 = 0.0;
@@ -317,6 +348,26 @@ void AGV_Suspended()
               nAgvWorkMode = AGV_MODE_RUNNING;
               }
             break;
+        }
+
+        case PRESSING_STOP_EVENT:   //急停事件
+        {
+        	if (Add_Command_Rotate == 1)  //急停标志位
+        	{
+        		VL_1200 = 0.0;
+        		VR_1200 = 0.0;
+        	}
+        	else if (Add_Command_Rotate == 0)  //急停解除
+        	{
+                if (data_Ok ==1 ) {
+                	nEvent = 0;
+                	Virtual_AGV_Current_Coor_InWorld = PGV150_coor;
+                	State = No_Interpolation;
+                	nAgvWorkMode = AGV_MODE_RUNNING;
+                  }
+                track_resrt(); //脱轨复位
+        	}
+        	break;
         }
 
 
@@ -372,7 +423,7 @@ void AGV_Running()
             	Movement_Control();
             	Run_Movement_Class();
 
-                if (Target_Velocity_InAGV.velocity_x > 300)
+                if (Virtual_AGV_Current_Velocity_InAGV.velocity_x > 800)
                 {
              ++ twoDMissingCnt;
     //              printf("twoDMissingCnt=%d\n",twoDMissingCnt);
@@ -382,7 +433,7 @@ void AGV_Running()
                     	OutOfTrack = 0x00;
                     }
 
-                    if (twoDMissingCnt > 750)
+                    if (twoDMissingCnt > 10000)
                     {
                         OutOfTrack = 0x01;
                         nEvent = OUT_OF_TRACK_EVENT;
@@ -398,7 +449,7 @@ void AGV_Running()
             	Movement_Control();
             	Run_Movement_Class();
 
-                if (abs(Target_Velocity_InAGV.velocity_x) > 300)
+                if (abs(Virtual_AGV_Current_Velocity_InAGV.velocity_x) > 800)
                 {
                 	++ twoDMissingCnt;
    //           	  printf("twoDMissingCnt=%d\n",twoDMissingCnt);
@@ -407,7 +458,7 @@ void AGV_Running()
                       	OutOfTrack = 0x00;
                       }
 
-                    if (twoDMissingCnt > 750)    //检查导航脱轨事件
+                    if (twoDMissingCnt > 10000)    //检查导航脱轨事件
                     {
                         OutOfTrack = 0x01;
                         nEvent = OUT_OF_TRACK_EVENT;
@@ -420,7 +471,7 @@ void AGV_Running()
             {
             	static float vx =0.0 ;
             	//printf("Turn_left\n");
-              if (abs(Error_Coor_InAGV.angle_coor) <= 2.0 )
+              if (abs(Error_Coor_InAGV.angle_coor) <= 1.5 )
               {
             	  VL_1200 = 0.0;
             	  VR_1200 = 0.0;
@@ -429,13 +480,13 @@ void AGV_Running()
               }
               else if( abs(Destination_Coor_InWorld.angle_coor - AGV_Current_Coor_InWorld.angle_coor) >65  )
                 {
-            	  vx=vx+100;
+            	  vx=vx+0.2;
             	  if(vx>300)
             	        vx=300;
                   }
               else if ( abs(Destination_Coor_InWorld.angle_coor - AGV_Current_Coor_InWorld.angle_coor) < 65)
               {
-            	  vx = vx -180;
+            	  vx = vx -2;
             	  if (vx<53)
             	        vx=53;
               }
@@ -463,7 +514,7 @@ void AGV_Running()
             {
             	static float vx =0.0 ;
             	//printf("Turn_right\n");
-                if (abs(Error_Coor_InAGV.angle_coor) <= 2.0 )
+                if (abs(Error_Coor_InAGV.angle_coor) <= 1.5 )
                 {
               	  VL_1200 = 0.0;
               	  VR_1200 = 0.0;
@@ -472,13 +523,13 @@ void AGV_Running()
                 }
                 else if( abs(Destination_Coor_InWorld.angle_coor - AGV_Current_Coor_InWorld.angle_coor) >65  )
                   {
-              	  vx=vx+100;
+              	  vx=vx+0.2;
               	  if(vx>300)
               	        vx=300;
                     }
                 else if ( abs(Destination_Coor_InWorld.angle_coor - AGV_Current_Coor_InWorld.angle_coor) < 65)
                 {
-              	  vx=vx-180;
+              	  vx=vx-2;
               	  if (vx<53)
               	        vx=53;
                 }
@@ -515,7 +566,7 @@ void AGV_Running()
         {
             UpdateAgvHeaderDirToNow();
             Run_Movement_Class();
-            if (Target_Velocity_InAGV.velocity_x > 1.0)
+            if (Virtual_AGV_Current_Velocity_InAGV.velocity_x > 1.0)
             {
                 ++ twoDMissingCnt;
                 if (twoDMissingCnt > 100)

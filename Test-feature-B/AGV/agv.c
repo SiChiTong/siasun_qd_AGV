@@ -13,6 +13,7 @@
 #include "motion_ctrl.h"
 #include <stdint-gcc.h>
 #include "stdlib.h"
+#include <pthread.h>
 //#include <Thread_Pool.h>
 
 extern uint16_t Motionstyle;
@@ -42,10 +43,12 @@ extern int odom_flag;
 extern Velocity_Class_t Virtual_AGV_Current_Velocity_InAGV;
 //extern int data_ok;
 float angle_error;    //角度误差
-float PID_error, error_last, error_next;      //PID误差输入
+float PID_error,PID_error_xy, error_last, error_next;      //PID误差输入
 float PID_result = 0.0;
 
-
+int can_succeed = 1;
+int pgv_succeed = 1;
+int pid_succeed = 1;
 
 
 
@@ -54,7 +57,7 @@ void paramter_define()
 {
 
     wheelParamter.line_slowest_time = 0.35; //0.1
-    wheelParamter.motor_max_rotationl_velocity_soft = 3000;
+    wheelParamter.motor_max_rotationl_velocity_soft = 2800;
     wheelParamter.motor_min_rotationl_velocity_soft = 150;
     wheelParamter.WHEEL_DIAMETER = 150.0;
     wheelParamter.REDUCATION_RATIO = 15.0;
@@ -70,8 +73,13 @@ void paramter_define()
     Interpolation_Parameter.slow_time_abs = wheelParamter.line_slowest_time;
 }
 
-void myprocess2() //Prase_Sensor_Data.485pgv
+void *myprocess2(void *t) //Prase_Sensor_Data.485pgv
 {
+	while (1)
+	{
+	//pgv_succeed = 0;
+		//usleep(1000);
+
     PGV_Send_data();           //串口发送
     usleep(60);
     PGV_Rev();            //串口接受
@@ -89,27 +97,45 @@ void myprocess2() //Prase_Sensor_Data.485pgv
     	    	  virtual_agv_coor_init_flag = 1;
     	      }
     	}
-    //return NULL;
-    }
+    //pgv_succeed = 1;
+  //  return NULL;
+	}
+   }
 
 
-void myprocess3()  //can TMU
+void *myprocess3(void *t)  //can TMU
 {
+	while(1)
+	{
+		//usleep(1000);
+	//can_succeed = 0;
     CanSendThread(CAN0);//初始化can0通道 (发送)
- //   CanRecvThread(CAN0);  //初始化can0通道(接收)
-   // IMU = MPI204A_Analyze_Data();  //解析imu角度及角速度
-   // return NULL;
+    CanRecvThread(CAN0);  //初始化can0通道(接收)
+    IMU = MPI204A_Analyze_Data();  //解析imu角度及角速度
+
+   //can_succeed = 1;
+    //usleep(5000);
+    //return NULL;
+	}
+
 }
 
+/*
 void can_fun()
 {
-
 		CanRecvThread(CAN0);  //初始化can0通道(接收)
 		 IMU = MPI204A_Analyze_Data();  //解析imu角度及角速度
 }
+*/
 /*****************************定位程序**********************************/
-void Location_AGV() //Location_AGV
+void Location_AGV()//Location_AGV
 {
+	//while(1)
+	//{
+		//usleep(100);
+
+	static float x_last;
+	static float y_last;
 
     Error_Coor_InAGV.x_coor = Destination_Coor_InWorld.x_coor - AGV_Current_Coor_InWorld.x_coor;
     Error_Coor_InAGV.y_coor = Destination_Coor_InWorld.y_coor - AGV_Current_Coor_InWorld.y_coor;
@@ -132,8 +158,9 @@ void Location_AGV() //Location_AGV
 	//AGV_Current_Velocity_InAGV.velocity_x = AGV_Current_Velocity_By_Encoder.velocity_x;  //编码器返回速度有误
 	//AGV_Current_Velocity_InAGV.velocity_y = 0;
 
-   // printf("data_ok=%d\n",data_Ok);
+  //  printf("data_ok=%d\n",data_Ok);
    // printf("odom_flag=%d\n",odom_flag);
+
 	if (data_Ok == 1)     //相机读取到数据
 	{
         //data_Ok = 0;
@@ -145,31 +172,41 @@ void Location_AGV() //Location_AGV
         Coor_delta.angle_rad = 0 ;
 
 		AGV_Current_Coor_InWorld = PGV150_coor;   //更新全局坐标
-    //    printf("PGV150_coor.x = %f, PGV150_coor.y = %f, PGV150_coor.angle = %f\n", PGV150_coor.x_coor, PGV150_coor.y_coor, PGV150_coor.angle_coor);
-	//	printf("CURRENT_X =%f,CURRENT_Y=%f,CURRENT_A=%f\n",AGV_Current_Coor_InWorld.x_coor,AGV_Current_Coor_InWorld.y_coor,AGV_Current_Coor_InWorld.angle_coor);
-
 	}
-	//else if (odom_flag==1 && data_Ok==0 )
-		else
+
+	else if ( data_Ok==0 )
 	{
-		odom_flag = 0;
-		//AGV_Current_Coor_InWorld=Odom_Coor;
+		//odom_flag = 0;
 		AGV_Current_Coor_InWorld = Odom_Calib(Virtual_AGV_Current_Velocity_InAGV.velocity_x, AGV_Current_Velocity_InAGV.angular_velocity_angle);    //无二维码部分进行里程推算
-	//	printf("currentr_x =%f,current_y=%f,current_a=%f\n",AGV_Current_Coor_InWorld.x_coor,AGV_Current_Coor_InWorld.y_coor,AGV_Current_Coor_InWorld.angle_coor);
-
 	}
+	/*
+	if ( abs(AGV_Current_Coor_InWorld.x_coor - x_last ) > 100 || abs( y_last - AGV_Current_Coor_InWorld.y_coor) > 100){
+		AGV_Current_Coor_InWorld.x_coor = x_last;
+		AGV_Current_Coor_InWorld.y_coor = y_last;
+	}
+
+	 x_last = AGV_Current_Coor_InWorld.x_coor;
+	 y_last = AGV_Current_Coor_InWorld.y_coor;
+	 */
 	//return NULL;
+	//}
 }
 
 
 /*****************************PID调节*********************************/
-void myprocess1() //PID_fun
+void *myprocess1(void *t) //PID_fun
 {
+	while(1)
+	{
+	//pid_succeed = 0;
+		usleep(3);
             angle_error = Destination_Coor_InWorld.angle_coor - AGV_Current_Coor_InWorld.angle_coor;
+            //printf("angle_error=%f\n",angle_error);
 
-if( (abs(angle_error) < 0.45 && (abs(Error_Coor_InAGV.x_coor) < 1.5 ||abs(Error_Coor_InAGV.y_coor) < 1.5))||( abs(Virtual_AGV_Current_Velocity_InAGV.velocity_x)<85 ) ){
+if( (abs(angle_error) < 0.47 && (abs(Error_Coor_InAGV.x_coor) < 2 ||abs(Error_Coor_InAGV.y_coor) < 2))||( abs(Virtual_AGV_Current_Velocity_InAGV.velocity_x)<80 ) ){
 	 PID_error = 0;
-	 //printf("安全区间\n");
+	 PID_error_xy = 0;
+	// printf("安全区间\n");
     }
 
 else
@@ -179,22 +216,25 @@ else
 	if ( Motionstyle == ACTION_MODE_GOAHEAD )
 		{
         if (Destination_Coor_InWorld.angle_coor == 0.0){
-        //	if( abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.y_coor) >5  ){//0.5 3 3
-        	if( abs(Error_Coor_InAGV.y_coor) >5.0  ){
+        	//if( abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.y_coor) >4.5 ){//0.5 3 3
+        	if( 0&&  abs(Error_Coor_InAGV.y_coor) >5.0  ){
         		 PID_error = Error_Coor_InAGV.y_coor*T;
         		// printf("危险区间\n");
         	}
         	else
-        		PID_error = Error_Coor_InAGV.y_coor * 0.47 + angle_error * 0.53;
+        		PID_error = Error_Coor_InAGV.y_coor * 0.45 + angle_error * 0.55;
+        		PID_error_xy =  Error_Coor_InAGV.y_coor;
         }
 
         else if (Destination_Coor_InWorld.angle_coor == 90.0){
-        	if( abs(Error_Coor_InAGV.x_coor) > 5.0 ){
+        	//if(   abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.x_coor) >4.5 ){
+        	if(  0&&  abs(Error_Coor_InAGV.x_coor) > 5.0 ){
         		 PID_error = -Error_Coor_InAGV.x_coor*T;
-        		// printf("危险区间 \n");
+        		 //printf("危险区间 \n");
         	}
         	else
-        		PID_error = -Error_Coor_InAGV.x_coor * 0.47 + angle_error * 0.53;
+        		PID_error = -Error_Coor_InAGV.x_coor * 0.45 + angle_error * 0.55;
+        		PID_error_xy = -Error_Coor_InAGV.x_coor;
         }
      }
 
@@ -202,30 +242,50 @@ else
  if ( Motionstyle == ACTION_MODE_GOBACK)
  {
        if (Destination_Coor_InWorld.angle_coor == 0.0){
-    	   if(   abs(Error_Coor_InAGV.y_coor) > 5.0  ){
+    	  // if(    abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.y_coor) >4.5 ){
+    	   if(  0&&    abs(Error_Coor_InAGV.y_coor) > 5.0  ){
     		   PID_error = -Error_Coor_InAGV.y_coor*T;
     		   //printf("危险区间 \n");
     	   }
     	   else
-    		   PID_error = -Error_Coor_InAGV.y_coor * 0.47 + angle_error * 0.53;
+    		   PID_error = -Error_Coor_InAGV.y_coor * 0.45 + angle_error * 0.55;
+    	   	   PID_error_xy = -Error_Coor_InAGV.y_coor;
+    	   	   //printf("PID_error_xy=%f\n",PID_error_xy);
+    	   	   //printf("PID_error=%f\n",PID_error);
        }
 
        else if (Destination_Coor_InWorld.angle_coor == 90.0){
-    	   if( abs(Error_Coor_InAGV.x_coor) > 5.0  ){
+    	   //if(    abs(angle_error) <= 1.5 && abs(Error_Coor_InAGV.x_coor) >4.5 ){
+    	   if(  0&&  abs(Error_Coor_InAGV.x_coor) > 5.0  ){
     		   PID_error = Error_Coor_InAGV.x_coor*T;
-    		 //  printf("危险区间 \n");
+    		   //printf("危险区间 \n");
     	   }
     	   else
-    		   PID_error = Error_Coor_InAGV.x_coor * 0.47 + angle_error * 0.53;
+    		   PID_error = Error_Coor_InAGV.x_coor * 0.45 + angle_error * 0.55;
+    	   	   PID_error_xy = Error_Coor_InAGV.x_coor;
        }
     }
 }
-/*
- 	 if (abs(Virtual_AGV_Current_Velocity_InAGV.velocity_x)> 1200)
-        PID_result = HI * (PID_error - error_next) + HP * PID_error + HD * (PID_error - 2 * error_next + error_last);
- 	 else
- 	 */
- 		PID_result = KI * (PID_error - error_next) + KP * PID_error + KD * (PID_error - 2 * error_next + error_last);
+
+	if(abs(PID_error_xy) > abs(error_last))   //产生误差
+	{
+		printf("in_put\n");
+ 	// if (abs(Virtual_AGV_Current_Velocity_InAGV.velocity_x)> 1200)
+        PID_result = HI * (PID_error_xy+angle_error) + HP * PID_error + HD * (PID_error - 2 * error_next + error_last);
+ 	// else
+ 		//PID_result = KI * (PID_error - error_next) + KP * PID_error + KD * (PID_error - 2 * error_next + error_last);
+	}
+
+	if(abs(PID_error_xy) < abs(error_last))  //回调
+	{
+		printf("bake\n");
+		 PID_result = -HI * PID_error_xy + HP * PID_error + HD * (PID_error - 2 * error_next + error_last);
+	}
+	/*if(abs(PID_error_xy) == abs(error_last))  //回调
+	{
+		//printf("safe\n");
+		 PID_result =  HP * PID_error + HD * (PID_error - 2 * error_next + error_last);
+	}*/
 
         if (PID_result < -60)
         {
@@ -235,25 +295,72 @@ else
         {
             PID_result = 60.0;
         }
+        static int i;
+        i++;
+        if(i>50){
+        	i = 0;
         error_last = error_next;
-        error_next = PID_error;
+        }
+        error_next = PID_error_xy;
         //usleep(3);
        // printf("PID_result = %f\n", PID_result);
+       // pid_succeed = 1;
+       // usleep(5000);
        // return NULL;
+	}
 }
 
 
 
-/*
+
 void get_can()
 {
     int rc;
     long t;
-    pthread_t tid;
-    rc = pthread_create(&tid, NULL, can_fun, (void *)t);
+    pthread_t id_can;
+    rc = pthread_create(&id_can, NULL, myprocess3, (void *)t);
+    if (rc)
+    {
+        printf("Can pthread create failed!\n");
+        return;
+    }
+}
+
+void get_pid()
+{
+    int rc;
+    long t;
+    pthread_t id_pid;
+    rc = pthread_create(&id_pid, NULL, myprocess1, (void *)t);
     if (rc)
     {
         printf("PID pthread create failed!\n");
+        return;
+    }
+}
+
+void get_pgv()
+{
+    int rc;
+    long t;
+    pthread_t id_pgv;
+    rc = pthread_create(&id_pgv, NULL, myprocess2, (void *)t);
+    if (rc)
+    {
+        printf("Pgv pthread create failed!\n");
+        return;
+    }
+}
+/*
+void get_location()
+{
+    int rc;
+    long t;
+    pthread_t id_location;
+    rc = pthread_create(&id_location, NULL, myprocess4, (void *)t);
+    if (rc)
+    {
+        printf("Pgv pthread create failed!\n");
         return;
     }
 }

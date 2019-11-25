@@ -44,8 +44,8 @@ Coordinate_Class_t Odom_Calib(float velocity_x, float angular_velocity_angle)
 	//else if(velocity_x<0)
 		//delta_distance = velocity_x * time_back;
 
-	Coor_delta.angle_coor = angular_velocity_angle * 0.0097;//0.0023/0.002/0.0028
-
+	Coor_delta.angle_coor = angular_velocity_angle * 0.00022;//0.0023/0.002/0.0028
+	//printf("angular_velocity_angle = %f\n",angular_velocity_angle);
 	angle += Coor_delta.angle_coor;
 
 	//angle = Angle_Trans(angle, 0);

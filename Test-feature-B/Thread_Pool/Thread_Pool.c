@@ -17,6 +17,10 @@
 #include <can.h>
 #include <TCP.h>
 
+extern int can_succeed;
+extern int tcp_succeed;
+extern int pgv_succeed;
+extern int pid_succeed ;
 
 /*
 *线程池里所有运行和等待的任务都是一个CThread_worker
@@ -157,7 +161,7 @@ void * thread_routine (void *arg)
     //printf ("starting thread 0x%x\n", pthread_self ());
 
     while (1)
-    {
+   {
         pthread_mutex_lock (&(pool->queue_lock));
         /*如果等待队列为0并且不销毁线程池，则处于阻塞状态; 注意
         pthread_cond_wait是一个原子操作，等待前会解锁，唤醒后会加锁*/
@@ -196,37 +200,48 @@ void * thread_routine (void *arg)
     /*这一句应该是不可达的*/
     pthread_exit (NULL);
 }
+
 /*
 void Pthread_Analy()
 {
-	int *workingnum = (int *) malloc (sizeof (int) * 4);//动态分布6个存储空间,用于存放任务名
+	int *workingnum = (int *) malloc (sizeof (int) * 5);//动态分布6个存储空间,用于存放任务名
     int i=0;
     for (i = 0; i < 4; i++)//动态分配任务至线程池
 		{
 			workingnum[i] = i;
 			if (i==0)
 				{
+				//printf("tcp_succeed=%d\n",tcp_succeed);
+				//if (tcp_succeed == 1)
 				pool_add_worker (myprocess0, &workingnum[i]); //tcp
 				}
 			if (i==1)
 				{
+				//printf("pid_succeed=%d\n",pid_succeed);
+				//if (pid_succeed == 1)
 				pool_add_worker (myprocess1, &workingnum[i]);//pid
 				}
 			if (i==2)
 				{
+				//printf("pgv_succeed=%d\n",pgv_succeed);
+				//if(pgv_succeed == 1)
 				pool_add_worker (myprocess2, &workingnum[i]);//485
 				}
 
 			if (i==3)
 				{
+				//printf("can_succeed=%d\n",can_succeed);
+				//if(can_succeed == 1)
 				pool_add_worker (myprocess3, &workingnum[i]); //can
 				}
 
 		}
+  // usleep (500);
 		free (workingnum);//释放任务名的存储空间
         	/*等待所有任务完成*/
         	//sleep (5);
         	/*销毁线程池*/
         	//pool_destroy ();
 //}
+
 

@@ -44,7 +44,7 @@ void IO_PowerOn () //io口使能
 void MPI204A_init()
 {
 	CAN0 = CanBusInit("can0");       //init can
-   //  IO_PowerOn();   //io口使能
+     IO_PowerOn();   //io口使能
 	//pthread_t canRecvCan0;              //can0接收线程句柄
 	//pthread_create(&canRecvCan0, NULL, (void *)CanRecvThread, CAN0);
 }

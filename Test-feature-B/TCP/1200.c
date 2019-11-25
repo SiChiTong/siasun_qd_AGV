@@ -12,7 +12,7 @@
 #include <protocol.h>
 #include <errno.h>
 #include <agv.h>
-#include <Thread_Pool.h>
+//#include <Thread_Pool.h>
 //#include<select.h>
 
 #include <unistd.h>
@@ -38,6 +38,8 @@ int command_x;
 int command_y;
 int command_angle;
 
+int tcp_succeed = 1;
+
 extern char revbuf[LENGTH];
 struct Buffer buf;
 extern char buffer[8];  //发送PLC数组
@@ -62,35 +64,45 @@ void get_PLC_init()
     sock = sock_connect("192.168.1.10", 5000);
     if (sock == -1)
     {
-        printf("error: %s\n", strerror(errno));
+        printf("errors: %s\n", strerror(errno));
         exit(0);
         //return NULL;
     }
     printf("connnect 192.168.1.10:5000\n");
 
 }
-/*
+
 void get_pthread()
 {
 	int rc;
 	long t;
-	pthread_t tid;
-	rc = pthread_create(&tid, NULL, fuck_tcp, (void *)t);
+	pthread_t id_tcp;
+	rc = pthread_create(&id_tcp, NULL, myprocess0, (void *)t);
 	if (rc)
 	{
 		printf("pthread create failed!\n");
 		return;
 	}
 }
-*/
 
-void myprocess0()  //fuck_tcp
+
+void *myprocess0( void*t)  //fuck_tcp
 {
+	while(1)
+	{
+	//tcp_succeed = 0;
+		usleep(3);
 
 	fd_set rset;
 	 int ret;
 	 FD_ZERO (&rset);
 	 FD_SET (sock, &rset);
+
+	 struct timeval time;
+
+	 	time.tv_sec = 0;
+	 	time.tv_usec = 500;
+
 
 
     buffer_init(&buf);
@@ -98,17 +110,19 @@ void myprocess0()  //fuck_tcp
         PLC_send(buffer);     //套接字发送(放主函数会有接收延迟)
         char tmp[26];
 
-        ret = select(sock+1, &rset, NULL, NULL, NULL);
+        //ret = select(sock+1, &rset, NULL, NULL, &time);
+        ret = select(sock+1, &rset, NULL, NULL,NULL );
            if (ret == 0)
            {
             myerr("select time out");
-            return;
+          //  return;
            }
 
         int len = read(sock, tmp, sizeof(tmp));    //套接字接收
         printf("1200 REV LEN=%d\n", len);
-        if (len == -1 )
+        while (len == -1 ){
         	 len = read(sock, tmp, sizeof(tmp));
+        }
         if (len <= 0)
         {
             printf("received %d, exit.\n", len);
@@ -135,10 +149,13 @@ void myprocess0()  //fuck_tcp
                 printf(" [Mergerd Packed]\n");
             }
             free(msg);
+           // usleep(5000);
         }
-      //usleep(30);
- //   return NULL;
-
+     // usleep(10);
+      // tcp_succeed = 1;
+      // usleep(5000);
+  //return NULL;
+	}
 }
 
 

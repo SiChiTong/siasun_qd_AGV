@@ -24,6 +24,7 @@
 #include <pthread.h>
 #include <SPC_SDIO_1616.h>
 
+
 #define errout(_s)	fprintf(stderr, "error class: %s\n", (_s))
 #define errcode(_d) fprintf(stderr, "error code: %02x\n", (_d))
 
@@ -141,7 +142,7 @@ void CanSendThread(canBus_t *can)
 	//printf("send thread done!\n");
 	//printf_frame(&arg->can->sendBuffer);
 
-	//SDIO_Out_Data(); //IO发送
+	SDIO_Out_Data(); //IO发送
 
 
 
@@ -159,15 +160,15 @@ void CanRecvThread(canBus_t *can)
 
 
 	tv.tv_sec = 0;
-	tv.tv_usec = 5000;
+	tv.tv_usec = 500;
 
 	FD_ZERO(&rset);
 	FD_SET(can->canFd, &rset);
 
 	//printf("this is can select\n");
 
-	//ret = select(can->canFd + 1, &rset, NULL, NULL, NULL);
-	ret = select(can->canFd + 1, &rset, NULL, NULL, &tv);
+	ret = select(can->canFd + 1, &rset, NULL, NULL, NULL);
+	//ret = select(can->canFd + 1, &rset, NULL, NULL, &tv);
 	if (ret == 0)
 	{
 		myerr("select time out");

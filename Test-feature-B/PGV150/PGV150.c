@@ -140,6 +140,7 @@ void PGV_Rev()
 
     //sleep(10);
     len_r = rcv_com_dev(fd_r, PGV_Rev_buff,21);
+   // len_r = rcv_com_dev(fd_r, cmd_buff,21);
 
 
 
@@ -171,7 +172,7 @@ void PGV_Rev()
             //sleep(1);
         }
     }
-  //  printf("len_r = %d\n", len_r);
+   // printf("len_r = %d\n", len_r);
         //sleep(10);
 
 
@@ -327,6 +328,9 @@ int PGV_AnalyzeData()
 	if ((xor_temp == PGV_Rev_buff[20]) && (PGV_Rev_buff[20] != 0) && (PGV_Rev_buff[0] != 2))
 	{
 		rx_xor_flag = 1;
+
+	    data_temp = ((PGV_Rev_buff[2] & 0x07) << 21) + (PGV_Rev_buff[3] << 14) + (PGV_Rev_buff[4] << 7) + PGV_Rev_buff[5];
+		x_temp = (data_temp & _BV(23)) ? (int)(-(_BV(24) - data_temp)) : (int)data_temp;
 	//	printf("xortemp = %x\n", xor_temp);
 	//	printf("PGV_RCV=%x %x %x %x %x %x %x %x %x %x %x %x %x %x %x %x %x %x %x %x %x\n", PGV_Rev_buff[0], PGV_Rev_buff[1], PGV_Rev_buff[2], PGV_Rev_buff[3], PGV_Rev_buff[4], PGV_Rev_buff[5], PGV_Rev_buff[6], PGV_Rev_buff[7], PGV_Rev_buff[8], PGV_Rev_buff[9], PGV_Rev_buff[10], PGV_Rev_buff[11], PGV_Rev_buff[12], PGV_Rev_buff[13], PGV_Rev_buff[14], PGV_Rev_buff[15], PGV_Rev_buff[16], PGV_Rev_buff[17], PGV_Rev_buff[18], PGV_Rev_buff[19], PGV_Rev_buff[20]);
 	}
@@ -341,8 +345,8 @@ int PGV_AnalyzeData()
 	warn_flag = (int)(PGV_Rev_buff[0] & _BV(2)); //提取错误标志
 	warn = PGV_Rev_buff[18] << 7 | PGV_Rev_buff[19];	//错误代码
 
-    data_temp = ((PGV_Rev_buff[2] & 0x07) << 21) + (PGV_Rev_buff[3] << 14) + (PGV_Rev_buff[4] << 7) + PGV_Rev_buff[5];
-	x_temp = (data_temp & _BV(23)) ? (int)(-(_BV(24) - data_temp)) : (int)data_temp;
+    //data_temp = ((PGV_Rev_buff[2] & 0x07) << 21) + (PGV_Rev_buff[3] << 14) + (PGV_Rev_buff[4] << 7) + PGV_Rev_buff[5];
+	//x_temp = (data_temp & _BV(23)) ? (int)(-(_BV(24) - data_temp)) : (int)data_temp;
 	//data_temp = (PGV_Rev_buff[2] & 0x07) * 0x80 * 0x4000 + PGV_Rev_buff[3] * 0x4000 + PGV_Rev_buff[4] * 0x80 + PGV_Rev_buff[5];
 	//if (data_temp > 0x800000)
 	//	x_temp = (0x1000000 - data_temp) * -1;

@@ -38,7 +38,6 @@ float VR_1200;    //发送给PLC右轮速度
 Coordinate_Class_t Destination_Coor_InWorld;     //目标位置
 
 
-
 int Add_Command_Line, Add_Command_Rotate;
 
 

@@ -286,11 +286,12 @@ int rcv_com_dev(int fd, char *rcv_buf,int data_len)
 	FD_ZERO(&fs_read);
 	FD_SET(fd,&fs_read);
 
-	time.tv_sec = 1;
-	time.tv_usec = 0;
+	time.tv_sec = 0;
+	time.tv_usec = 500;
 
 	//使用select实现串口的多路通信
-	fs_sel = select(fd+1,&fs_read,NULL,NULL,&time);
+	//fs_sel = select(fd+1,&fs_read,NULL,NULL,&time);
+	fs_sel = select(fd+1,&fs_read,NULL,NULL,NULL);
 	if(fs_sel >= 0)
 	{
 		if (FD_ISSET(fd,&fs_read))

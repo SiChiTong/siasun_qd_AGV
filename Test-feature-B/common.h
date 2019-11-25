@@ -11,23 +11,23 @@
 
 
 #define _BV(n) (1 << n)
-#define time_s  0.01 //0.00129695
+#define time_s  0.0000195 //0.00129695 //0.01
 //#define time_back 0.00127
 #define M_PI 3.1415926
 #define wheel_distance 581.8
 
-#define KP 0.8 //1.12/1.1/1.15/1.2
-#define KI 30  ///40/20/5
+#define KP 1.05 //1.12/1.1/1.15/1.2
+#define KI 50  ///40/20/5
 #define KD 5 //8
 
-#define HP 1.9 ///1.7/1.9/1.6/1.8/2.1 //高速PID
-#define HI 60//5
-#define HD 10 //8
+#define HP 0.85 ///1.7/1.9/1.6/1.8/2.1 //高速PID
+#define HI 1.15//5
+#define HD 0 //8
 
-#define Z 0.85    //0.85/0.95/1.1/1.2/1.3/重心补值 1100
+#define Z 0.82    //0.85/0.95/1.1/1.2/1.3/重心补值 1100
 //#define HZ 6.1 //5.6/5.3/5.15/6.6/3.6/2.3/1.9  //高速重心补值
 
-#define T 0.7 //1.25/1.3/1.2/1.5/2.0/2.5/脱轨调节  低速：0.7  高速：
+#define T 0.5 //1.25/1.3/1.2/1.5/2.0/2.5/脱轨调节  低速：0.7  高速：
 
 
 typedef struct Coordinate_Class

@@ -37,6 +37,7 @@
         <option value="$PROJECT_DIR$/App/motion_ctrl.c" />
         <option value="$PROJECT_DIR$/App/Interpolation.c" />
         <option value="$PROJECT_DIR$/AGV/agv.c" />
+        <option value="$PROJECT_DIR$/TCP/1200.c" />
       </list>
     </option>
   </component>
@@ -52,7 +53,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -64,14 +64,15 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Test-feature-C" />
+    <property name="last_opened_file_path" value="$USER_HOME$/github/Test-feature-B (3)" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/../Test-feature-B-old/main.c" />
-    <property name="two.files.diff.last.used.folder" value="$PROJECT_DIR$/../Test-feature-C" />
+    <property name="two.files.diff.last.used.folder" value="$USER_HOME$/github/Test-feature-B (3)" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -112,17 +113,20 @@
       <workItem from="1572581929831" duration="383000" />
       <workItem from="1572939173013" duration="698000" />
       <workItem from="1573087929652" duration="649000" />
-      <workItem from="1573442853320" duration="3909000" />
+      <workItem from="1573442853320" duration="4066000" />
+      <workItem from="1573640838159" duration="1674000" />
+      <workItem from="1574131211398" duration="1415000" />
+      <workItem from="1574317689551" duration="4241000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13561000" />
+    <option name="totallyTimeSpent" value="21048000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="55" y="-4" width="1865" height="1084" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19669421" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20385675" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
